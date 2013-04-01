@@ -17,8 +17,6 @@ class Postgresql93 < Formula
   end
 
   def install
-    ENV.deparallelize  # FIXME
-
     args = ["--prefix=#{prefix}",
             "--enable-dtrace",
             "--enable-nls",
