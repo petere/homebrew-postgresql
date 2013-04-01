@@ -10,7 +10,7 @@ class PostgresqlCommon < Formula
   depends_on 'gnu-sed' => :build
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}", "localstatedir=#{var}"
     prefix.install 'debian/README.Debian', 'architecture.html'
   end
 end
