@@ -3,8 +3,8 @@ require 'tmpdir'
 
 class Postgresql91 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.1.8/postgresql-9.1.8.tar.bz2'
-  sha1 'da932f51ffe8a578b5694c74867ce634ce847827'
+  url 'http://ftp.postgresql.org/pub/source/v9.1.9/postgresql-9.1.9.tar.bz2'
+  sha1 '4cbbfc5be9b8e6fe3d67c5075c212bcb057eac20'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
