@@ -3,7 +3,9 @@ require 'tmpdir'
 
 class Postgresql93 < Formula
   homepage 'http://www.postgresql.org/'
-  head 'http://git.postgresql.org/git/postgresql.git'
+  url 'http://ftp.postgresql.org/pub/source/v9.3beta1/postgresql-9.3beta1.tar.bz2'
+  version '9.3beta1'
+  sha256 '1e11099fe4a6cd3327c9c2bf4a9b903383195de330da27d322fc872d1d694df1'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
@@ -34,10 +36,7 @@ class Postgresql93 < Formula
             "--with-tcl"]
 
     system "./configure", *args
-    # XXX Can't build docs using Homebrew-provided software, so skip
-    # it when building from Git.
-    system "make install"
-    system "make -C contrib install"
+    system "make install-world"
   end
 
   def test
