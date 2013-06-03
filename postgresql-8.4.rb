@@ -8,6 +8,8 @@ class Postgresql84 < Formula
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
+  env :std
+
   depends_on 'gettext'
   depends_on 'ossp-uuid'
   depends_on 'readline'
