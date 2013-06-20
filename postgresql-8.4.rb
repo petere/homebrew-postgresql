@@ -5,6 +5,7 @@ class Postgresql84 < Formula
   homepage 'http://www.postgresql.org/'
   url 'http://ftp.postgresql.org/pub/source/v8.4.17/postgresql-8.4.17.tar.bz2'
   sha1 '1c8760ad7048f6e62ac8c822fee653117f5beb57'
+  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL8_4_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 

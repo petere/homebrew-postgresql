@@ -5,6 +5,7 @@ class Postgresql91 < Formula
   homepage 'http://www.postgresql.org/'
   url 'http://ftp.postgresql.org/pub/source/v9.1.9/postgresql-9.1.9.tar.bz2'
   sha1 '4cbbfc5be9b8e6fe3d67c5075c212bcb057eac20'
+  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_1_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
@@ -38,7 +39,14 @@ class Postgresql91 < Formula
             "--with-tcl"]
 
     system "./configure", *args
-    system "make install-world"
+    if build.head?
+      # XXX Can't build docs using Homebrew-provided software, so skip
+      # it when building from Git.
+      system "make install"
+      system "make -C contrib install"
+    else
+      system "make install-world"
+    end
   end
 
   def test
