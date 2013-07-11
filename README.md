@@ -8,9 +8,16 @@ Just `brew tap petere/postgresql` and then `brew install <formula>`.
 Details
 -------
 
-Since PostgreSQL major releases have incompatible data directories and other occasional incompatibilities, it is useful for many developers to keep several major versions installed in parallel for development, testing, and production.  So far, Homebrew did not support that (the bogus `postgresql8` and `postgresql9` formulae in `homebrew-versions` notwithstanding).  This tap provides versioned formulae named `postgresql-9.1`, `postgresql-9.2`, etc. that you can install in parallel.  Technically, these are "keg-only", which has the nice side effect that they are automatically installed in side-by-side directories `/usr/local/opt/postgresql-9.1/` etc.  You can just call the programs directly from those directories, or adjust your path to your liking.
+Since PostgreSQL major releases have incompatible data directories and other occasional incompatibilities, it is useful for many developers to keep several major versions installed in parallel for development, testing, and production.  So far, Homebrew did not support that (the bogus `postgresql8` and `postgresql9` formulae in `homebrew-versions` notwithstanding).  This tap provides versioned formulae named `postgresql-9.1`, `postgresql-9.2`, etc. that you can install in parallel.  Technically, these are "keg-only", which has the nice side effect that they are automatically installed in side-by-side directories `/usr/local/opt/postgresql-9.1/` etc.
 
-The versioned formulae can be installed alongside the main `postgresql` formula in Homebrew.
+To use the programs installed by these formulae, do one or more of the following, in increasing order of preference:
+
+- Call all programs explicitly with `/usr/local/opt/postgresql-9.2/bin/...`.  This will be boring in the long run.
+- Add your preferred `/usr/local/opt/postgresql-x.y/bin` etc. to your path.  Preferably to the front, to come before the operating system's PostgreSQL installation.  This will work alright, but depending on your setup, it might be difficult to get everything on the OS to see the same path.
+- `brew link -f` the `postgresql-x.y` formula you prefer to use.
+- Install the `postgresql-common` package (see below).
+
+The versioned formulae can be installed alongside the main `postgresql` formula in Homebrew.  But there will be a conflict if you do `brew link -f` or install `postgresql-common`, so in those cases you have to uninstall the main `postgresql` package first.  This is not a problem, however, because the versioned packages provide the same functionality.
 
 Build options
 -------------
@@ -20,6 +27,15 @@ The standard `postgresql` formula in Homebrew is missing a number of build optio
 postgresql-common cluster manager
 ---------------------------------
 
-This is a port of the postgresql-common package from Debian, which contains programs that help manage these multiple versioned installations, and programs to manage multiple PostgreSQL instances (clusters).  This is highly experimental, but it works.
+`postgresql-common` is a port of the postgresql-common package from Debian, which contains programs that help manage these multiple versioned installations, and programs to manage multiple PostgreSQL instances (clusters).  The port a bit experimental, but it works.
 
-See `/usr/local/Cellar/postgresql-common/HEAD/README.Debian` to get started.  If you have used Debian or Ubuntu before, you'll feel right at home (I hope).  If you haven't, this will be really confusing, so good luck. :smirk:
+See `/usr/local/Cellar/postgresql-common/HEAD/README.Debian` to get started.  If you have used Debian or Ubuntu before, you'll feel right at home (I hope).
+
+The general idea is that for server-side operations you use the special wrapper scripts `pg_createcluster`, `pg_dropcluster`, `pg_ctlcluster`, and `pg_lsclusters` instead of `initdb` and `pg_ctl`.  The scripts take version numbers and instance names (which map to directory names).  For example:
+
+    pg_createcluster 9.2 test
+    pg_ctlcluster 9.2 test start
+
+See the respective man pages for details.
+
+For client-side operations, to usual tools such as `psql` and `pg_dump` are wrapped to automatically use the right version for the instance they are connecting to, so you usually don't need to do anything special.  See the man page `pg_wrapper` for details.

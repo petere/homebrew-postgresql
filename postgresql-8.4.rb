@@ -44,6 +44,16 @@ class Postgresql84 < Formula
     system "make -C contrib install"
   end
 
+  def caveats; <<-EOS.undent
+    To use this PostgreSQL installation, do one or more of the following:
+
+    - Call all programs explicitly with #{opt_prefix}/bin/...
+    - Add #{opt_prefix}/bin to your PATH
+    - brew link -f #{name}
+    - Install the postgresql-common package
+    EOS
+  end
+
   def test
     Dir.mktmpdir do |dir|
       system "#{bin}/initdb", "#{dir}/pgdata"
