@@ -2,7 +2,8 @@ require 'formula'
 
 class PostgresqlCommon < Formula
   homepage 'http://packages.qa.debian.org/p/postgresql-common.html'
-  head 'https://github.com/petere/postgresql-common.git', :branch => 'homebrew'
+  #head 'https://github.com/petere/postgresql-common.git', :branch => 'homebrew'
+  head '/Users/peisentraut/devel/github/postgresql-common/postgresql-common', :branch => 'homebrew', :using => :git
 
   conflicts_with 'postgresql',
     :because => 'both install the same binaries.'
