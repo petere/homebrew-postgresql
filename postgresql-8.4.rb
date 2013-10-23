@@ -14,6 +14,7 @@ class Postgresql84 < Formula
   depends_on 'gettext'
   depends_on 'ossp-uuid'
   depends_on 'readline'
+  depends_on 'tcl-tk' if MacOS.version >= :mavericks
 
   # Fix PL/Python build: https://github.com/mxcl/homebrew/issues/11162
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
@@ -26,7 +27,6 @@ class Postgresql84 < Formula
             "--enable-dtrace",
             "--enable-nls",
             "--enable-thread-safety",
-            "--with-bonjour",
             "--with-gssapi",
             "--with-krb5",
             "--with-ldap",
