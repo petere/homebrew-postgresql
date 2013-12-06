@@ -5,6 +5,8 @@ These formulae allow installing multiple versions of PostgreSQL in parallel.  Th
 
 Just `brew tap petere/postgresql` and then `brew install <formula>`.
 
+[![Build Status](https://secure.travis-ci.org/petere/homebrew-postgresql.png?branch=master)](http://travis-ci.org/petere/homebrew-postgresql)
+
 Details
 -------
 
