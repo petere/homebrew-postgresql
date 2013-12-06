@@ -3,8 +3,8 @@ require 'tmpdir'
 
 class Postgresql90 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.0.14/postgresql-9.0.14.tar.bz2'
-  sha256 'de42b669cb891fc9b925406e71d1669ed5c856aae6d552ac6f14bf6dec0b79f1'
+  url 'http://ftp.postgresql.org/pub/source/v9.0.15/postgresql-9.0.15.tar.bz2'
+  sha256 'a45acd27d546e425911ecd371247066be5dafd96304e50e0708c84b918c28f9d'
   head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_0_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
