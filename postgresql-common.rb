@@ -10,6 +10,9 @@ class PostgresqlCommon < Formula
   depends_on 'gnu-sed' => :build
 
   def install
+    %w(Makefile PgCommon.pm).each do |f|
+      inreplace f, '/usr/local/opt/postgresql', HOMEBREW_PREFIX/'opt/postgresql'
+    end
     system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}", "localstatedir=#{var}"
     prefix.install 'debian/README.Debian', 'architecture.html'
   end
