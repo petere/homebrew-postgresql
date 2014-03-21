@@ -3,8 +3,8 @@ require 'tmpdir'
 
 class Postgresql84 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v8.4.20/postgresql-8.4.20.tar.bz2'
-  sha256 'e84e46083a6accd2bf37f0bd7253415649afcafc49f2564bc8481c10ed90d7c1'
+  url 'http://ftp.postgresql.org/pub/source/v8.4.21/postgresql-8.4.21.tar.bz2'
+  sha256 '388f67e59f2a16c27e84f50656f5d755adf3d0a883138366d091aa0c727c1e2c'
   head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL8_4_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
