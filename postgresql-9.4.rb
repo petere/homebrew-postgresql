@@ -3,6 +3,9 @@ require 'tmpdir'
 
 class Postgresql94 < Formula
   homepage 'http://www.postgresql.org/'
+  url 'http://ftp.postgresql.org/pub/source/v9.4beta1/postgresql-9.4beta1.tar.bz2'
+  version '9.4beta1'
+  sha256 '0e088eff79bb5171b2233222a25d7a2906eaf62aa86266daf6ec5217b1797f47'
   head 'http://git.postgresql.org/git/postgresql.git'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
@@ -28,7 +31,6 @@ class Postgresql94 < Formula
             "--enable-nls",
             "--with-bonjour",
             "--with-gssapi",
-            "--with-krb5",
             "--with-ldap",
             "--with-libxml",
             "--with-libxslt",
@@ -40,10 +42,24 @@ class Postgresql94 < Formula
             "--with-tcl"]
 
     system "./configure", *args
-    # XXX Can't build docs using Homebrew-provided software, so skip
-    # it when building from Git.
-    system "make install"
-    system "make -C contrib install"
+    if build.head?
+      # XXX Can't build docs using Homebrew-provided software, so skip
+      # it when building from Git.
+      system "make install"
+      system "make -C contrib install"
+    else
+      system "make install-world"
+    end
+  end
+
+  def caveats; <<-EOS.undent
+    To use this PostgreSQL installation, do one or more of the following:
+
+    - Call all programs explicitly with #{opt_prefix}/bin/...
+    - Add #{opt_prefix}/bin to your PATH
+    - brew link -f #{name}
+    - Install the postgresql-common package
+    EOS
   end
 
   def test
