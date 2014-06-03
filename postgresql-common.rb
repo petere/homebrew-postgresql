@@ -15,5 +15,8 @@ class PostgresqlCommon < Formula
     end
     system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}", "localstatedir=#{var}"
     prefix.install 'debian/README.Debian', 'architecture.html'
+
+    (var/'lib/postgresql').mkpath
+    (var/'log/postgresql').mkpath
   end
 end
