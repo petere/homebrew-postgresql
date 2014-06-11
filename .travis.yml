@@ -2,8 +2,8 @@ language: objective-c
 before_install:
   - brew update
 install:
-  - mkdir -p $(brew --repo)/Library/Taps
-  - ln -s $PWD $(brew --repo)/Library/Taps/travis-testtap
+  - mkdir -p $(brew --repo)/Library/Taps/travis
+  - ln -s $PWD $(brew --repo)/Library/Taps/travis/homebrew-testtap
   - brew tap --repair
 env:
   - PACKAGE=postgresql-8.3
