@@ -15,7 +15,6 @@ class Postgresql94 < Formula
   depends_on 'gettext'
   depends_on 'ossp-uuid'
   depends_on 'readline'
-  depends_on 'tcl-tk' if MacOS.version >= :mavericks
 
   def patches
     [
