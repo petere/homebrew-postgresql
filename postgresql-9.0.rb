@@ -3,8 +3,8 @@ require 'tmpdir'
 
 class Postgresql90 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.0.17/postgresql-9.0.17.tar.bz2'
-  sha256 'd2f6d09cf941e7cbab6ee399f14080dbe822af58fda9fd132efb05c2b7d160ad'
+  url 'http://ftp.postgresql.org/pub/source/v9.0.18/postgresql-9.0.18.tar.bz2'
+  sha256 '7c8a07d0ab78fe39522c6bb268a7b357f456d9d4796f57d7b43a004e4a9d3003'
   head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_0_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
@@ -15,7 +15,6 @@ class Postgresql90 < Formula
   depends_on 'ossp-uuid'
   depends_on 'readline'
 
-  # Fix PL/Python build: https://github.com/mxcl/homebrew/issues/11162
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
 
@@ -66,17 +65,6 @@ end
 
 
 __END__
---- a/src/pl/plpython/Makefile  2011-09-23 08:03:52.000000000 +1000
-+++ b/src/pl/plpython/Makefile  2011-10-26 21:43:40.000000000 +1100
-@@ -24,8 +24,6 @@
- # Darwin (OS X) has its own ideas about how to do this.
- ifeq ($(PORTNAME), darwin)
- shared_libpython = yes
--override python_libspec = -framework Python
--override python_additional_libs =
- endif
-
- # If we don't have a shared library and the platform doesn't allow it
 --- a/contrib/uuid-ossp/uuid-ossp.c     2012-07-30 18:34:53.000000000 -0700
 +++ b/contrib/uuid-ossp/uuid-ossp.c     2012-07-30 18:35:03.000000000 -0700
 @@ -9,6 +9,8 @@
