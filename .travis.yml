@@ -14,6 +14,6 @@ env:
   - PACKAGE=postgresql-9.3
   - PACKAGE=postgresql-9.4
 script:
-  - brew audit $PACKAGE
   - brew install -v $PACKAGE
+  - brew audit $PACKAGE
   - brew test $PACKAGE
