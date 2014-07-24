@@ -16,9 +16,7 @@ class Postgresql93 < Formula
   depends_on 'readline'
 
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     args = ["--prefix=#{prefix}",
