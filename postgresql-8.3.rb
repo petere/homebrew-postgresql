@@ -20,6 +20,7 @@ class Postgresql83 < Formula
 
   def install
     args = ["--prefix=#{prefix}",
+            "--mandir=#{man}",
             "--enable-thread-safety",
             "--with-gssapi",
             "--with-krb5",
