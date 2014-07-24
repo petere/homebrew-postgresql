@@ -3,26 +3,18 @@ require 'tmpdir'
 
 class Postgresql94 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.4beta1/postgresql-9.4beta1.tar.bz2'
-  version '9.4beta1'
-  sha256 '0e088eff79bb5171b2233222a25d7a2906eaf62aa86266daf6ec5217b1797f47'
-  head 'http://git.postgresql.org/git/postgresql.git'
+  url 'http://ftp.postgresql.org/pub/source/v9.4beta2/postgresql-9.4beta2.tar.bz2'
+  version '9.4beta2'
+  sha256 '567406cf58386917916d8ef7ac892bf79e98742cd16909bb00fc920dd31a388c'
+  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_4_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
   env :std
 
+  depends_on 'e2fsprogs'
   depends_on 'gettext'
-  depends_on 'ossp-uuid'
   depends_on 'readline'
-
-  def patches
-    [
-     # Fix uuid-ossp build issues
-     DATA,  # http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
-     'http://www.postgresql.org/message-id/attachment/32317/configure-uuid.patch',
-    ]
-  end
 
   def install
     args = ["--prefix=#{prefix}",
@@ -34,7 +26,7 @@ class Postgresql94 < Formula
             "--with-libxml",
             "--with-libxslt",
             "--with-openssl",
-            "--with-ossp-uuid",
+            "--with-uuid=e2fs",
             "--with-pam",
             "--with-perl",
             "--with-python",
@@ -67,17 +59,3 @@ class Postgresql94 < Formula
     end
   end
 end
-
-
-__END__
---- a/contrib/uuid-ossp/uuid-ossp.c     2012-07-30 18:34:53.000000000 -0700
-+++ b/contrib/uuid-ossp/uuid-ossp.c     2012-07-30 18:35:03.000000000 -0700
-@@ -9,6 +9,8 @@
-  *-------------------------------------------------------------------------
-  */
-
-+#define _XOPEN_SOURCE
-+
- #include "postgres.h"
- #include "fmgr.h"
- #include "utils/builtins.h"
