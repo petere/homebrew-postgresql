@@ -1,5 +1,4 @@
 require 'formula'
-require 'tmpdir'
 
 class Postgresql83 < Formula
   homepage 'http://www.postgresql.org/'
@@ -49,10 +48,8 @@ class Postgresql83 < Formula
     EOS
   end
 
-  def test
-    Dir.mktmpdir do |dir|
-      system "#{bin}/initdb", "#{dir}/pgdata"
-    end
+  test do
+    system "#{bin}/initdb", "pgdata"
   end
 end
 
