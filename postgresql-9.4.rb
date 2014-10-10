@@ -2,9 +2,9 @@ require 'formula'
 
 class Postgresql94 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.4beta2/postgresql-9.4beta2.tar.bz2'
-  version '9.4beta2'
-  sha256 '567406cf58386917916d8ef7ac892bf79e98742cd16909bb00fc920dd31a388c'
+  url 'http://ftp.postgresql.org/pub/source/v9.4beta3/postgresql-9.4beta3.tar.bz2'
+  version '9.4beta3'
+  sha256 '5ad1d86a5b9a70d5c153dd862b306a930c6cf67fb4a3f00813eef19fabe6aa5d'
   head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_4_STABLE'
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
