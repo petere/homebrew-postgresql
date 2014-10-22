@@ -10,6 +10,7 @@ class Postgresql95 < Formula
 
   depends_on 'e2fsprogs'
   depends_on 'gettext'
+  depends_on 'openssl'
   depends_on 'readline'
 
   def install

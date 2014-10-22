@@ -11,6 +11,7 @@ class Postgresql91 < Formula
   env :std
 
   depends_on 'gettext'
+  depends_on 'openssl'
   depends_on 'ossp-uuid'
   depends_on 'readline'
 

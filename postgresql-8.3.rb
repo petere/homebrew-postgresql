@@ -10,6 +10,7 @@ class Postgresql83 < Formula
 
   env :std
 
+  depends_on 'openssl'
   depends_on 'ossp-uuid'
   depends_on 'readline'
 
