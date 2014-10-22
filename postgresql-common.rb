@@ -19,4 +19,8 @@ class PostgresqlCommon < Formula
     (var/'lib/postgresql').mkpath
     (var/'log/postgresql').mkpath
   end
+
+  test do
+    system bin/'pg_lsclusters'
+  end
 end
