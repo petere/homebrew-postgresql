@@ -17,5 +17,5 @@ env:
   - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
   - brew install -v $install_opt $PACKAGE
-  - brew audit $PACKAGE
+  - case $install_opt in *HEAD*) ;; *) brew audit $PACKAGE;; esac
   - brew test $PACKAGE
