@@ -13,7 +13,9 @@ env:
   - PACKAGE=postgresql-9.2
   - PACKAGE=postgresql-9.3
   - PACKAGE=postgresql-9.4
+  - PACKAGE=postgresql-9.5 install_opt='--HEAD'
+  - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
-  - brew install -v $PACKAGE
+  - brew install -v $install_opt $PACKAGE
   - brew audit $PACKAGE
   - brew test $PACKAGE
