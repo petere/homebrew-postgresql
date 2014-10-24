@@ -2,7 +2,14 @@ require 'formula'
 
 class Postgresql95 < Formula
   homepage 'http://www.postgresql.org/'
-  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'master'
+
+  head do
+    url 'http://git.postgresql.org/git/postgresql.git', :branch => 'master'
+
+    depends_on 'petere/sgml/docbook-dsssl' => :build
+    depends_on 'petere/sgml/docbook-sgml' => :build
+    depends_on 'petere/sgml/openjade' => :build
+  end
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
@@ -30,14 +37,7 @@ class Postgresql95 < Formula
             "--with-tcl"]
 
     system "./configure", *args
-    if build.head?
-      # XXX Can't build docs using Homebrew-provided software, so skip
-      # it when building from Git.
-      system "make install"
-      system "make -C contrib install"
-    else
-      system "make install-world"
-    end
+    system "make install-world"
   end
 
   def caveats; <<-EOS.undent

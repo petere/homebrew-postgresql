@@ -4,7 +4,14 @@ class Postgresql91 < Formula
   homepage 'http://www.postgresql.org/'
   url 'http://ftp.postgresql.org/pub/source/v9.1.14/postgresql-9.1.14.tar.bz2'
   sha256 'd0647ce563d18ae02bf68c5dd646a4c75e8b45b3a4fada64d481371fdc16f522'
-  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_1_STABLE'
+
+  head do
+    url 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_1_STABLE'
+
+    depends_on 'petere/sgml/docbook-dsssl' => :build
+    depends_on 'petere/sgml/docbook-sgml' => :build
+    depends_on 'petere/sgml/openjade' => :build
+  end
 
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
@@ -36,14 +43,7 @@ class Postgresql91 < Formula
             "--with-tcl"]
 
     system "./configure", *args
-    if build.head?
-      # XXX Can't build docs using Homebrew-provided software, so skip
-      # it when building from Git.
-      system "make install"
-      system "make -C contrib install"
-    else
-      system "make install-world"
-    end
+    system "make install-world"
   end
 
   def caveats; <<-EOS.undent
