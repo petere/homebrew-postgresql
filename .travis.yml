@@ -7,15 +7,18 @@ install:
   - ln -s $PWD $(brew --repo)/Library/Taps/travis/homebrew-testtap
   - brew tap --repair
 env:
-  - PACKAGE=postgresql-8.3
-  - PACKAGE=postgresql-8.4
-  - PACKAGE=postgresql-9.0
-  - PACKAGE=postgresql-9.1
-  - PACKAGE=postgresql-9.2
-  - PACKAGE=postgresql-9.3
-  - PACKAGE=postgresql-9.4
-  - PACKAGE=postgresql-9.5 install_opt='--HEAD'
-  - PACKAGE=postgresql-common install_opt='--HEAD'
+  global:
+    - SGML_CATALOG_FILES=/usr/local/etc/sgml/catalog
+  matrix:
+    - PACKAGE=postgresql-8.3
+    - PACKAGE=postgresql-8.4
+    - PACKAGE=postgresql-9.0
+    - PACKAGE=postgresql-9.1
+    - PACKAGE=postgresql-9.2
+    - PACKAGE=postgresql-9.3
+    - PACKAGE=postgresql-9.4
+    - PACKAGE=postgresql-9.5 install_opt='--HEAD'
+    - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
   - brew install -v $install_opt $PACKAGE
   - case $install_opt in *HEAD*) ;; *) brew audit $PACKAGE;; esac
