@@ -36,6 +36,8 @@ class Postgresql95 < Formula
             "--with-python",
             "--with-tcl"]
 
+    args << "--with-extra-version=+git" if build.head?
+
     system "./configure", *args
     system "make install-world"
   end
