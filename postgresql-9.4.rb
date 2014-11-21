@@ -3,7 +3,6 @@ require 'formula'
 class Postgresql94 < Formula
   homepage 'http://www.postgresql.org/'
   url 'http://ftp.postgresql.org/pub/source/v9.4rc1/postgresql-9.4rc1.tar.bz2'
-  version '9.4rc1'
   sha256 '6ce91d78fd6c306536f5734dbaca10889814b9d0fe0b38a41b3e635d95241c7c'
 
   head do
