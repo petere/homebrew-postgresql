@@ -13,6 +13,8 @@ class Postgresql94 < Formula
     depends_on 'petere/sgml/openjade' => :build
   end
 
+  option 'disable-assertions', 'Speeds up PostgreSQL but skips tests valuable during development'
+
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
   env :std
@@ -38,6 +40,7 @@ class Postgresql94 < Formula
             "--with-python",
             "--with-tcl"]
 
+    args << "--enable-cassert" unless build.include? "disable-assertions"
     args << "--with-extra-version=+git" if build.head?
 
     system "./configure", *args
