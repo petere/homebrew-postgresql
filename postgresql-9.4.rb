@@ -2,8 +2,8 @@ require 'formula'
 
 class Postgresql94 < Formula
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.4rc1/postgresql-9.4rc1.tar.bz2'
-  sha256 '6ce91d78fd6c306536f5734dbaca10889814b9d0fe0b38a41b3e635d95241c7c'
+  url 'http://ftp.postgresql.org/pub/source/v9.4.0/postgresql-9.4.0.tar.bz2'
+  sha256 '7a35c3cb77532f7b15702e474d7ef02f0f419527ee80a4ca6036fffb551625a5'
 
   head do
     url 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_4_STABLE'
