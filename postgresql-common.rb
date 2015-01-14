@@ -11,7 +11,7 @@ class PostgresqlCommon < Formula
 
   def install
     %w(Makefile PgCommon.pm).each do |f|
-      inreplace f, '/usr/local/opt/postgresql', HOMEBREW_PREFIX/'opt/postgresql'
+      inreplace f, '/usr/local/opt/', HOMEBREW_PREFIX/'opt/'
     end
     system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}", "localstatedir=#{var}"
     prefix.install 'debian/README.Debian', 'architecture.html'
