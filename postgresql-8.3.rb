@@ -6,6 +6,8 @@ class Postgresql83 < Formula
   sha1 'e479f3eced32a14ada66082de7c8b33f77e2588b'
   head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL8_3_STABLE'
 
+  option 'disable-assertions', 'Speeds up PostgreSQL but skips tests valuable during development'
+
   keg_only 'The different provided versions of PostgreSQL conflict with each other.'
 
   env :std
@@ -33,6 +35,8 @@ class Postgresql83 < Formula
             "--with-perl",
             "--with-python",
             "--with-tcl"]
+
+    args << "--enable-cassert" unless build.include? "disable-assertions"
 
     system "./configure", *args
     system "make install"
