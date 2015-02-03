@@ -4,6 +4,8 @@ class Postgresql84 < Formula
   sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
+  option "enable-cassert", "Enable assertion checks (for debugging)"
+
   keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
@@ -32,6 +34,8 @@ class Postgresql84 < Formula
             "--with-perl",
             "--with-python",
             "--with-tcl"]
+
+    args << "--enable-cassert" if build.include? "enable-cassert"
 
     system "./configure", *args
     system "make install"

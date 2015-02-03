@@ -11,6 +11,8 @@ class Postgresql91 < Formula
     depends_on "petere/sgml/openjade" => :build
   end
 
+  option "enable-cassert", "Enable assertion checks (for debugging)"
+
   keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
@@ -39,6 +41,8 @@ class Postgresql91 < Formula
             "--with-perl",
             "--with-python",
             "--with-tcl"]
+
+    args << "--enable-cassert" if build.include? "enable-cassert"
 
     system "./configure", *args
     system "make install-world"
