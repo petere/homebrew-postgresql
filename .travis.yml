@@ -6,6 +6,7 @@ install:
   - mkdir -p $(brew --repo)/Library/Taps/travis
   - ln -s $PWD $(brew --repo)/Library/Taps/travis/homebrew-testtap
   - brew tap --repair
+  - gem install rubocop
 env:
   global:
     - SGML_CATALOG_FILES=/usr/local/etc/sgml/catalog
@@ -20,6 +21,7 @@ env:
     - PACKAGE=postgresql-9.5 install_opt='--HEAD'
     - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
+  - rubocop --config=$(brew --repo)/Library/.rubocop.yml ${PACKAGE}.rb
   - brew install -v $install_opt $PACKAGE
   - case $install_opt in *HEAD*) ;; *) brew audit $PACKAGE;; esac
   - brew test $PACKAGE
