@@ -1,24 +1,22 @@
-require 'formula'
-
 class Postgresql95 < Formula
-  homepage 'http://www.postgresql.org/'
+  homepage "http://www.postgresql.org/"
 
   head do
-    url 'http://git.postgresql.org/git/postgresql.git', :branch => 'master'
+    url "http://git.postgresql.org/git/postgresql.git", :branch => "master"
 
-    depends_on 'petere/sgml/docbook-dsssl' => :build
-    depends_on 'petere/sgml/docbook-sgml' => :build
-    depends_on 'petere/sgml/openjade' => :build
+    depends_on "petere/sgml/docbook-dsssl" => :build
+    depends_on "petere/sgml/docbook-sgml" => :build
+    depends_on "petere/sgml/openjade" => :build
   end
 
-  keg_only 'The different provided versions of PostgreSQL conflict with each other.'
+  keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
 
-  depends_on 'e2fsprogs'
-  depends_on 'gettext'
-  depends_on 'openssl'
-  depends_on 'readline'
+  depends_on "e2fsprogs"
+  depends_on "gettext"
+  depends_on "openssl"
+  depends_on "readline"
 
   def install
     args = ["--prefix=#{prefix}",

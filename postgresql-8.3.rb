@@ -1,18 +1,16 @@
-require 'formula'
-
 class Postgresql83 < Formula
-  homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v8.3.23/postgresql-8.3.23.tar.bz2'
-  sha1 'e479f3eced32a14ada66082de7c8b33f77e2588b'
-  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL8_3_STABLE'
+  homepage "http://www.postgresql.org/"
+  url "http://ftp.postgresql.org/pub/source/v8.3.23/postgresql-8.3.23.tar.bz2"
+  sha1 "e479f3eced32a14ada66082de7c8b33f77e2588b"
+  head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_3_STABLE"
 
-  keg_only 'The different provided versions of PostgreSQL conflict with each other.'
+  keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
 
-  depends_on 'openssl'
-  depends_on 'ossp-uuid'
-  depends_on 'readline'
+  depends_on "openssl"
+  depends_on "ossp-uuid"
+  depends_on "readline"
 
   # Fix PL/Python build: https://github.com/mxcl/homebrew/issues/11162
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php

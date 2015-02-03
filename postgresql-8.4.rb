@@ -1,19 +1,17 @@
-require 'formula'
-
 class Postgresql84 < Formula
-  homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v8.4.22/postgresql-8.4.22.tar.bz2'
-  sha256 '5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826'
-  head 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL8_4_STABLE'
+  homepage "http://www.postgresql.org/"
+  url "http://ftp.postgresql.org/pub/source/v8.4.22/postgresql-8.4.22.tar.bz2"
+  sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
+  head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
-  keg_only 'The different provided versions of PostgreSQL conflict with each other.'
+  keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
 
-  depends_on 'gettext'
-  depends_on 'openssl'
-  depends_on 'ossp-uuid'
-  depends_on 'readline'
+  depends_on "gettext"
+  depends_on "openssl"
+  depends_on "ossp-uuid"
+  depends_on "readline"
 
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA

@@ -1,26 +1,24 @@
-require 'formula'
-
 class Postgresql94 < Formula
-  homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.4.0/postgresql-9.4.0.tar.bz2'
-  sha256 '7a35c3cb77532f7b15702e474d7ef02f0f419527ee80a4ca6036fffb551625a5'
+  homepage "http://www.postgresql.org/"
+  url "http://ftp.postgresql.org/pub/source/v9.4.0/postgresql-9.4.0.tar.bz2"
+  sha256 "7a35c3cb77532f7b15702e474d7ef02f0f419527ee80a4ca6036fffb551625a5"
 
   head do
-    url 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_4_STABLE'
+    url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_4_STABLE"
 
-    depends_on 'petere/sgml/docbook-dsssl' => :build
-    depends_on 'petere/sgml/docbook-sgml' => :build
-    depends_on 'petere/sgml/openjade' => :build
+    depends_on "petere/sgml/docbook-dsssl" => :build
+    depends_on "petere/sgml/docbook-sgml" => :build
+    depends_on "petere/sgml/openjade" => :build
   end
 
-  keg_only 'The different provided versions of PostgreSQL conflict with each other.'
+  keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
 
-  depends_on 'e2fsprogs'
-  depends_on 'gettext'
-  depends_on 'openssl'
-  depends_on 'readline'
+  depends_on "e2fsprogs"
+  depends_on "gettext"
+  depends_on "openssl"
+  depends_on "readline"
 
   def install
     args = ["--prefix=#{prefix}",

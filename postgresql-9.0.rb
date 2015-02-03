@@ -1,26 +1,24 @@
-require 'formula'
-
 class Postgresql90 < Formula
-  homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.0.18/postgresql-9.0.18.tar.bz2'
-  sha256 '7c8a07d0ab78fe39522c6bb268a7b357f456d9d4796f57d7b43a004e4a9d3003'
+  homepage "http://www.postgresql.org/"
+  url "http://ftp.postgresql.org/pub/source/v9.0.18/postgresql-9.0.18.tar.bz2"
+  sha256 "7c8a07d0ab78fe39522c6bb268a7b357f456d9d4796f57d7b43a004e4a9d3003"
 
   head do
-    url 'http://git.postgresql.org/git/postgresql.git', :branch => 'REL9_0_STABLE'
+    url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_0_STABLE"
 
-    depends_on 'petere/sgml/docbook-dsssl' => :build
-    depends_on 'petere/sgml/docbook-sgml' => :build
-    depends_on 'petere/sgml/openjade' => :build
+    depends_on "petere/sgml/docbook-dsssl" => :build
+    depends_on "petere/sgml/docbook-sgml" => :build
+    depends_on "petere/sgml/openjade" => :build
   end
 
-  keg_only 'The different provided versions of PostgreSQL conflict with each other.'
+  keg_only "The different provided versions of PostgreSQL conflict with each other."
 
   env :std
 
-  depends_on 'gettext'
-  depends_on 'openssl'
-  depends_on 'ossp-uuid'
-  depends_on 'readline'
+  depends_on "gettext"
+  depends_on "openssl"
+  depends_on "ossp-uuid"
+  depends_on "readline"
 
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
