@@ -27,3 +27,13 @@ script:
   - case $install_opt in *HEAD*) ;; *) brew bottle --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
   - case $install_opt in *HEAD*) ;; *) brew audit $PACKAGE;; esac
   - brew test $PACKAGE
+deploy:
+  provider: releases
+  api_key:
+    secure: Rl0W8zJATaitqqLigTHjk1JG1JvkW8y5R2E2tpd5rZNy9NtQaS9o+zAMnyjX+TsJhWajL3s41IP7duZ3EyIdoYCsuM9IgJrpoWM1VK5VTvPO3FnZXNCp3W8iTkRP6/KSKTWKrjcgiK2yLOJlPeiQO02OWBvurWpb4Jo0wX16kxk=
+  file_glob: true
+  file: "*.bottle.tar.gz"
+  skip_cleanup: true
+  on:
+    repo: petere/homebrew-postgresql
+    tags: true
