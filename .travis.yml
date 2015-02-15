@@ -24,6 +24,6 @@ script:
   - rubocop --config=$(brew --repo)/Library/.rubocop.yml ${PACKAGE}.rb
   - brew install --build-bottle -v $install_opt $PACKAGE
   - brew postinstall $PACKAGE
-  - cast $install_opt in *HEAD*) ;; *) brew bottle --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
+  - case $install_opt in *HEAD*) ;; *) brew bottle --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
   - case $install_opt in *HEAD*) ;; *) brew audit $PACKAGE;; esac
   - brew test $PACKAGE
