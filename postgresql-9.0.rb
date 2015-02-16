@@ -3,6 +3,12 @@ class Postgresql90 < Formula
   url "http://ftp.postgresql.org/pub/source/v9.0.19/postgresql-9.0.19.tar.bz2"
   sha256 "53ad12bca99ba8ff0e002e39e50634c4dba1035232be1475cb77b3f6579385c0"
 
+  bottle do
+    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502150"
+    sha1 "544d54200a04723d0075415104f5e1ac8494df96" => :yosemite
+    sha1 "b509d55a93d0172718c72d934f6c9170e0149e66" => :mavericks
+  end
+
   head do
     url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_0_STABLE"
 

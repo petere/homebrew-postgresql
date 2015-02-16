@@ -4,6 +4,12 @@ class Postgresql84 < Formula
   sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
+  bottle do
+    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502150"
+    sha1 "ce0ce01a730e6567437af709a4b27719ad766152" => :yosemite
+    sha1 "07f93e7da2d2923b7375a400d02aef5b3a89ecf7" => :mavericks
+  end
+
   option "enable-cassert", "Enable assertion checks (for debugging)"
 
   keg_only "The different provided versions of PostgreSQL conflict with each other."
