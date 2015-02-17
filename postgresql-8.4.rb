@@ -10,6 +10,12 @@ class Postgresql84 < Formula
     sha1 "07f93e7da2d2923b7375a400d02aef5b3a89ecf7" => :mavericks
   end
 
+  devel do
+    url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS1/postgresql-8.4.22lts1.tar.bz2"
+    version "8.4.22lts1"
+    sha1 "2242f26f2353004b33a736cc2040c92c2dd1af04"
+  end
+
   option "enable-cassert", "Enable assertion checks (for debugging)"
 
   keg_only "The different provided versions of PostgreSQL conflict with each other."
