@@ -27,6 +27,7 @@ class Postgresql94 < Formula
   depends_on "gettext"
   depends_on "openssl"
   depends_on "readline"
+  depends_on "tcl-tk"
 
   def install
     args = ["--prefix=#{prefix}",

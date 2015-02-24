@@ -26,6 +26,7 @@ class Postgresql84 < Formula
   depends_on "openssl"
   depends_on "ossp-uuid"
   depends_on "readline"
+  depends_on "tcl-tk"
 
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
