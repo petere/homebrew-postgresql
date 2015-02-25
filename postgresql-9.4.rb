@@ -25,6 +25,7 @@ class Postgresql94 < Formula
 
   depends_on "e2fsprogs"
   depends_on "gettext"
+  depends_on "homebrew/dupes/openldap"
   depends_on "openssl"
   depends_on "readline"
   depends_on "homebrew/dupes/tcl-tk"
