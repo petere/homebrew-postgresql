@@ -5,9 +5,9 @@ class Postgresql84 < Formula
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
   bottle do
-    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502150"
-    sha1 "ce0ce01a730e6567437af709a4b27719ad766152" => :yosemite
-    sha1 "07f93e7da2d2923b7375a400d02aef5b3a89ecf7" => :mavericks
+    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502270"
+    sha1 "aae66b908d036de0cf017d805b230d6d9471a21e" => :yosemite
+    sha1 "73a676e4b39c6a684679c039bff6140e69fc575e" => :mavericks
   end
 
   devel do

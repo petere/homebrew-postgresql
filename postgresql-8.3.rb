@@ -5,9 +5,9 @@ class Postgresql83 < Formula
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_3_STABLE"
 
   bottle do
-    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502150"
-    sha1 "6be171af7e0cb4401b23703a1ea8254aa874251e" => :yosemite
-    sha1 "8f2311421e053b9ad6586a6211f4aebdd091cf64" => :mavericks
+    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502270"
+    sha1 "5e308ce85a83a0887b40036f4942debf9a7f313f" => :yosemite
+    sha1 "b86d4a589ba32ac7872e27aae56c2f0d449352f1" => :mavericks
   end
 
   option "enable-cassert", "Enable assertion checks (for debugging)"
