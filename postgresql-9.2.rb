@@ -1,7 +1,7 @@
 class Postgresql92 < Formula
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.2.10/postgresql-9.2.10.tar.bz2"
-  sha256 "35545bbfead46f70936a7f3f39ccef13e02cdb79c2b3ef3688888df5b18d73ad"
+  url "http://ftp.postgresql.org/pub/source/v9.2.13/postgresql-9.2.13.tar.bz2"
+  sha256 "5dcbd6209a8c0f508504fa433486583a42caaa240c823e1b3576db8a72db6a44"
 
   bottle do
     root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502270"
