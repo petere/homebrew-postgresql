@@ -4,9 +4,9 @@ class Postgresql91 < Formula
   sha256 "2726d526666904b454f87fe2ae54357c2ab9eb8aba299a4c904829b7598584a8"
 
   bottle do
-    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502270"
-    sha1 "936d9c03a8bd0c5ee87422412e05e0bd172be954" => :yosemite
-    sha1 "7745a56714844595ac5cf3b8f1332e549324c670" => :mavericks
+    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201506260"
+    sha256 "f035bff63ee994ca375e232480160f3e9bab9f9017e41d2742b0bec6e87b1cf1" => :yosemite
+    sha256 "b970c7ab364401ec9a0b90097321b4c0ab5f977e89c4fc3e4278593f87d3cfb8" => :mavericks
   end
 
   head do
