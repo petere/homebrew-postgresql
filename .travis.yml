@@ -19,6 +19,7 @@ env:
     - PACKAGE=postgresql-9.3
     - PACKAGE=postgresql-9.4
     - PACKAGE=postgresql-9.5
+    - PACKAGE=postgresql-9.6 install_opt='--HEAD'
     - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
   - rubocop --config=$(brew --repo)/Library/.rubocop.yml ${PACKAGE}.rb
