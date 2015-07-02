@@ -1,8 +1,11 @@
 class Postgresql95 < Formula
   homepage "http://www.postgresql.org/"
+  url "http://ftp.postgresql.org/pub/source/v9.5alpha1/postgresql-9.5alpha1.tar.bz2"
+  version "9.5alpha1"
+  sha256 "c97779f6c539e9072fa853fca8273f910f08805ae74456a01ab1fd0841ecfca2"
 
   head do
-    url "http://git.postgresql.org/git/postgresql.git", :branch => "master"
+    url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_5_STABLE"
 
     depends_on "petere/sgml/docbook-dsssl" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
