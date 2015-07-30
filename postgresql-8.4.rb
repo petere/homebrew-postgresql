@@ -13,7 +13,7 @@ class Postgresql84 < Formula
   devel do
     url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS4/postgresql-8.4.22lts4.tar.bz2"
     version "8.4.22lts4"
-    sha1 "3cbe94908c61fcda54d6e8d6e3569e037f809c54"
+    sha256 "e867d391cd2aeb083f4b98f384e433f1ba0e30cdb7cd0998f1112045da8361ae"
   end
 
   option "enable-cassert", "Enable assertion checks (for debugging)"
