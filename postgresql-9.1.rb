@@ -34,6 +34,8 @@ class Postgresql91 < Formula
   patch :DATA
 
   def install
+    ENV.enable_warnings
+
     args = ["--prefix=#{prefix}",
             "--enable-dtrace",
             "--enable-nls",

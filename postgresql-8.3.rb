@@ -27,6 +27,8 @@ class Postgresql83 < Formula
   patch :DATA
 
   def install
+    ENV.enable_warnings
+
     args = ["--prefix=#{prefix}",
             "--mandir=#{man}",
             "--enable-thread-safety",
