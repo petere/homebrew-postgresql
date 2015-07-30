@@ -41,3 +41,13 @@ The general idea is that for server-side operations you use the special wrapper 
 See the respective man pages for details.
 
 For client-side operations, to usual tools such as `psql` and `pg_dump` are wrapped to automatically use the right version for the instance they are connecting to, so you usually don't need to do anything special.  See the man page `pg_wrapper` for details.
+
+Extensions
+----------
+
+To install extensions, I recommend
+[Pex](https://github.com/petere/pex).  It has support for multiple
+PostgreSQL installations and can easily support to the installation
+scheme used by these packages.  Example:
+
+    pex -g /usr/local/opt/postgresql-9.4 install ip4r
