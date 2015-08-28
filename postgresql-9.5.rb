@@ -7,6 +7,7 @@ class Postgresql95 < Formula
   head do
     url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_5_STABLE"
 
+    depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-dsssl" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
     depends_on "petere/sgml/openjade" => :build
