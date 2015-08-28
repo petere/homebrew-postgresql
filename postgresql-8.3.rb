@@ -14,8 +14,6 @@ class Postgresql83 < Formula
 
   keg_only "The different provided versions of PostgreSQL conflict with each other."
 
-  env :std
-
   depends_on "homebrew/dupes/openldap"
   depends_on "openssl"
   depends_on "ossp-uuid"
@@ -41,6 +39,15 @@ class Postgresql83 < Formula
             "--with-perl",
             "--with-python",
             "--with-tcl"]
+
+    # Add include and library directories of dependencies, so that
+    # they can be used for compiling extensions.  Superenv does this
+    # when compiling this package, but won't record it for pg_config.
+    deps = %w[openldap openssl readline tcl-tk]
+    with_includes = deps.map { |f| Formula[f].opt_include }.join(":")
+    with_libraries = deps.map { |f| Formula[f].opt_lib }.join(":")
+    args << "--with-includes=#{with_includes}"
+    args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.include? "enable-cassert"
 
