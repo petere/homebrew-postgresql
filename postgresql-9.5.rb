@@ -25,6 +25,8 @@ class Postgresql95 < Formula
   depends_on "homebrew/dupes/tcl-tk"
 
   def install
+    ENV.enable_warnings
+
     args = ["--prefix=#{prefix}",
             "--enable-dtrace",
             "--enable-nls",
