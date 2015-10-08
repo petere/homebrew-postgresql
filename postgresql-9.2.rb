@@ -3,12 +3,6 @@ class Postgresql92 < Formula
   url "http://ftp.postgresql.org/pub/source/v9.2.13/postgresql-9.2.13.tar.bz2"
   sha256 "5dcbd6209a8c0f508504fa433486583a42caaa240c823e1b3576db8a72db6a44"
 
-  bottle do
-    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201506260"
-    sha256 "9b71934c09dec44fb49b7156e742157330abdf59dc775928b3314c914db1d311" => :yosemite
-    sha256 "f8c4fbbc05e3238e03d64b0b0a7ff3fb0b1ce9e25675692964e62f03f41f967b" => :mavericks
-  end
-
   head do
     url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_2_STABLE"
 

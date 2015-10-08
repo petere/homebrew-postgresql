@@ -4,12 +4,6 @@ class Postgresql84 < Formula
   sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
-  bottle do
-    root_url "https://github.com/petere/homebrew-postgresql/releases/download/bottles-201502270"
-    sha1 "aae66b908d036de0cf017d805b230d6d9471a21e" => :yosemite
-    sha1 "73a676e4b39c6a684679c039bff6140e69fc575e" => :mavericks
-  end
-
   devel do
     url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS4/postgresql-8.4.22lts4.tar.bz2"
     version "8.4.22lts4"
