@@ -1,7 +1,7 @@
 class Postgresql93 < Formula
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.3.9/postgresql-9.3.9.tar.bz2"
-  sha256 "f73bd0ec2028511732430beb22414a022d2114231366e8cbe78c149793910549"
+  url "http://ftp.postgresql.org/pub/source/v9.3.10/postgresql-9.3.10.tar.bz2"
+  sha256 "e5444f0f76aff98a251400b7c28bc361d65e3d72d8d6cb9bb5d8361a69541531"
 
   head do
     url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_3_STABLE"
