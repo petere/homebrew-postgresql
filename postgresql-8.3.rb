@@ -32,7 +32,8 @@ class Postgresql83 < Formula
             "--with-pam",
             "--with-perl",
             "--with-python",
-            "--with-tcl"]
+            "--with-tcl",
+           ]
 
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
