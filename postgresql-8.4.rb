@@ -5,9 +5,9 @@ class Postgresql84 < Formula
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
   devel do
-    url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS4/postgresql-8.4.22lts4.tar.bz2"
-    version "8.4.22lts4"
-    sha256 "e867d391cd2aeb083f4b98f384e433f1ba0e30cdb7cd0998f1112045da8361ae"
+    url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS5/postgresql-8.4.22lts5.tar.bz2"
+    version "8.4.22lts5"
+    sha256 "18522d6911e10c76236500114c728e4e9e741222b1f20384b5a96f0f7fc3efe5"
   end
 
   option "enable-cassert", "Enable assertion checks (for debugging)"
