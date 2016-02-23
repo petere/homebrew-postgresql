@@ -10,9 +10,9 @@ class Postgresql84 < Formula
     sha256 "18522d6911e10c76236500114c728e4e9e741222b1f20384b5a96f0f7fc3efe5"
   end
 
-  option "enable-cassert", "Enable assertion checks (for debugging)"
-
   keg_only "The different provided versions of PostgreSQL conflict with each other."
+
+  option "enable-cassert", "Enable assertion checks (for debugging)"
 
   depends_on "gettext"
   depends_on "homebrew/dupes/openldap"

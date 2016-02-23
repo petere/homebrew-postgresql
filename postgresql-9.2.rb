@@ -12,9 +12,9 @@ class Postgresql92 < Formula
     depends_on "petere/sgml/openjade" => :build
   end
 
-  option "enable-cassert", "Enable assertion checks (for debugging)"
-
   keg_only "The different provided versions of PostgreSQL conflict with each other."
+
+  option "enable-cassert", "Enable assertion checks (for debugging)"
 
   depends_on "gettext"
   depends_on "homebrew/dupes/openldap"
