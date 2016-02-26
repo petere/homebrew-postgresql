@@ -56,7 +56,7 @@ class Postgresql92 < Formula
     args << "--enable-cassert" if build.include? "enable-cassert"
 
     system "./configure", *args
-    system "make install-world"
+    system "make", "install-world"
   end
 
   def caveats; <<-EOS.undent

@@ -51,7 +51,7 @@ class Postgresql96 < Formula
     args << "--with-extra-version=+git" if build.head?
 
     system "./configure", *args
-    system "make install-world"
+    system "make", "install-world"
   end
 
   def caveats; <<-EOS.undent
