@@ -5,9 +5,9 @@ class Postgresql84 < Formula
   head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
   devel do
-    url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS5/postgresql-8.4.22lts5.tar.bz2"
-    version "8.4.22lts5"
-    sha256 "18522d6911e10c76236500114c728e4e9e741222b1f20384b5a96f0f7fc3efe5"
+    url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS6/postgresql-8.4.22lts6.tar.bz2"
+    version "8.4.22lts6"
+    sha256 "cf6c248e91df6d6aa5d0985f0c2aa4a576215faaf038c85bbdd182552a4bf3c9"
   end
 
   keg_only "The different provided versions of PostgreSQL conflict with each other."
