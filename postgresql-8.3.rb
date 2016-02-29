@@ -1,4 +1,5 @@
 class Postgresql83 < Formula
+  desc "Relational database management system"
   homepage "http://www.postgresql.org/"
   url "http://ftp.postgresql.org/pub/source/v8.3.23/postgresql-8.3.23.tar.bz2"
   sha256 "17a46617ddbeb16f37d79b43f4e72301b051e6ef888a2eac960375bf579018d9"

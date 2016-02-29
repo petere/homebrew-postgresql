@@ -1,4 +1,5 @@
 class Postgresql91 < Formula
+  desc "Relational database management system"
   homepage "http://www.postgresql.org/"
   url "http://ftp.postgresql.org/pub/source/v9.1.20/postgresql-9.1.20.tar.bz2"
   sha256 "6d1e6c4334c265a85f0f96407b7a9aafff0f26cb62db2d8d03a32ba0c2872937"

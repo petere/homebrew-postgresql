@@ -1,4 +1,5 @@
 class Postgresql96 < Formula
+  desc "Relational database management system"
   homepage "http://www.postgresql.org/"
 
   head do
