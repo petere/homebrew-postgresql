@@ -29,21 +29,22 @@ class Postgresql96 < Formula
   depends_on "homebrew/dupes/tcl-tk"
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--enable-dtrace",
-            "--enable-nls",
-            "--with-bonjour",
-            "--with-gssapi",
-            "--with-ldap",
-            "--with-libxml",
-            "--with-libxslt",
-            "--with-openssl",
-            "--with-uuid=e2fs",
-            "--with-pam",
-            "--with-perl",
-            "--with-python",
-            "--with-tcl",
-           ]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-dtrace
+      --enable-nls
+      --with-bonjour
+      --with-gssapi
+      --with-ldap
+      --with-libxml
+      --with-libxslt
+      --with-openssl
+      --with-uuid=e2fs
+      --with-pam
+      --with-perl
+      --with-python
+      --with-tcl
+    ]
 
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this

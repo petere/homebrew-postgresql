@@ -26,22 +26,23 @@ class Postgresql84 < Formula
   patch :DATA
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--enable-dtrace",
-            "--enable-nls",
-            "--enable-thread-safety",
-            "--with-gssapi",
-            "--with-krb5",
-            "--with-ldap",
-            "--with-libxml",
-            "--with-libxslt",
-            "--with-openssl",
-            "--with-ossp-uuid",
-            "--with-pam",
-            "--with-perl",
-            "--with-python",
-            "--with-tcl",
-           ]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-dtrace
+      --enable-nls
+      --enable-thread-safety
+      --with-gssapi
+      --with-krb5
+      --with-ldap
+      --with-libxml
+      --with-libxslt
+      --with-openssl
+      --with-ossp-uuid
+      --with-pam
+      --with-perl
+      --with-python
+      --with-tcl
+    ]
 
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
