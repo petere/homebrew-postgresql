@@ -22,11 +22,10 @@ env:
     - PACKAGE=postgresql-9.6 install_opt='--HEAD'
     - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
-  - rubocop --config=$(brew --repo)/Library/.rubocop.yml ${PACKAGE}.rb
   - brew install --build-bottle -v $install_opt $PACKAGE
   - brew postinstall $PACKAGE
   - case $install_opt in *HEAD*) ;; *) brew bottle --rb --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
-  - case $install_opt in *HEAD*) ;; *) brew audit $PACKAGE;; esac
+  - case $install_opt in *HEAD*) ;; *) brew audit --strict $PACKAGE;; esac
   - brew test $PACKAGE
 deploy:
   provider: releases
