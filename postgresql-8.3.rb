@@ -7,7 +7,8 @@ class Postgresql83 < Formula
 
   keg_only "The different provided versions of PostgreSQL conflict with each other."
 
-  option "enable-cassert", "Enable assertion checks (for debugging)"
+  deprecated_option "enable-cassert" => "with-cassert"
+  option "with-cassert", "Enable assertion checks (for debugging)"
 
   depends_on "homebrew/dupes/openldap"
   depends_on "openssl"
