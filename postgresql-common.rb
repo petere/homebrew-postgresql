@@ -1,6 +1,6 @@
 class PostgresqlCommon < Formula
   desc "PostgreSQL database-cluster manager"
-  homepage "http://packages.qa.debian.org/p/postgresql-common.html"
+  homepage "https://packages.qa.debian.org/p/postgresql-common.html"
   head "https://github.com/petere/postgresql-common.git", :branch => "homebrew"
 
   conflicts_with "postgresql",

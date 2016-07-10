@@ -1,11 +1,11 @@
 class Postgresql95 < Formula
   desc "Relational database management system"
-  homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.5.3/postgresql-9.5.3.tar.bz2"
+  homepage "https://www.postgresql.org/"
+  url "https://ftp.postgresql.org/pub/source/v9.5.3/postgresql-9.5.3.tar.bz2"
   sha256 "7385c01dc58acba8d7ac4e6ad42782bd7c0b59272862a3a3d5fe378d4503a0b4"
 
   head do
-    url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_5_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_5_STABLE"
 
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-dsssl" => :build

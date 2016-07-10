@@ -1,11 +1,11 @@
 class Postgresql91 < Formula
   desc "Relational database management system"
-  homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.1.22/postgresql-9.1.22.tar.bz2"
+  homepage "https://www.postgresql.org/"
+  url "https://ftp.postgresql.org/pub/source/v9.1.22/postgresql-9.1.22.tar.bz2"
   sha256 "f619664b0dde4e1a75fdc00c35afb4517002984a462d70967ffcdedfeee5e16e"
 
   head do
-    url "http://git.postgresql.org/git/postgresql.git", :branch => "REL9_1_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_1_STABLE"
 
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-dsssl" => :build
@@ -25,7 +25,7 @@ class Postgresql91 < Formula
   depends_on "readline"
   depends_on "homebrew/dupes/tcl-tk"
 
-  # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
+  # Fix uuid-ossp build issues: https://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
 
   def install

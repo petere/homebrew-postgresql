@@ -1,15 +1,15 @@
 class Postgresql96 < Formula
   desc "Relational database management system"
-  homepage "http://www.postgresql.org/"
+  homepage "https://www.postgresql.org/"
 
   devel do
-    url "http://ftp.postgresql.org/pub/source/v9.6beta2/postgresql-9.6beta2.tar.bz2"
+    url "https://ftp.postgresql.org/pub/source/v9.6beta2/postgresql-9.6beta2.tar.bz2"
     version "9.6beta2"
     sha256 "cf4e28263eeb855632545b778445e2591847df0587178b21e0346540c4c344eb"
   end
 
   head do
-    url "http://git.postgresql.org/git/postgresql.git", :branch => "master"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
 
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-dsssl" => :build

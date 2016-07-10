@@ -1,9 +1,9 @@
 class Postgresql84 < Formula
   desc "Relational database management system"
-  homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v8.4.22/postgresql-8.4.22.tar.bz2"
+  homepage "https://www.postgresql.org/"
+  url "https://ftp.postgresql.org/pub/source/v8.4.22/postgresql-8.4.22.tar.bz2"
   sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
-  head "http://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
+  head "https://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
   devel do
     url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS6/postgresql-8.4.22lts6.tar.bz2"
@@ -23,7 +23,7 @@ class Postgresql84 < Formula
   depends_on "readline"
   depends_on "homebrew/dupes/tcl-tk"
 
-  # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
+  # Fix uuid-ossp build issues: https://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
 
   def install
