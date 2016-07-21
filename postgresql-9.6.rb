@@ -3,9 +3,9 @@ class Postgresql96 < Formula
   homepage "https://www.postgresql.org/"
 
   devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6beta2/postgresql-9.6beta2.tar.bz2"
-    version "9.6beta2"
-    sha256 "cf4e28263eeb855632545b778445e2591847df0587178b21e0346540c4c344eb"
+    url "https://ftp.postgresql.org/pub/source/v9.6beta3/postgresql-9.6beta3.tar.bz2"
+    version "9.6beta3"
+    sha256 "9cc84eb224b6f73582705c4dda282c9f9f928ada2ab099c20fcf06a85d1e4c62"
   end
 
   head do
