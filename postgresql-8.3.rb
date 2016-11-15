@@ -36,6 +36,7 @@ class Postgresql83 < Formula
       --with-perl
       --with-python
       --with-tcl
+      XML2_CONFIG=:
     ]
 
     # Add include and library directories of dependencies, so that
