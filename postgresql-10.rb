@@ -51,7 +51,7 @@ class Postgresql10 < Formula
     args << "--with-includes=#{with_includes}"
     args << "--with-libraries=#{with_libraries}"
 
-    args << "--enable-cassert" if build.include? "enable-cassert"
+    args << "--enable-cassert" if build.include? "with-cassert"
     args << "--with-extra-version=+git" if build.head?
 
     system "./configure", *args
