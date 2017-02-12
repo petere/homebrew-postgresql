@@ -55,7 +55,7 @@ class Postgresql84 < Formula
     args << "--with-includes=#{with_includes}"
     args << "--with-libraries=#{with_libraries}"
 
-    args << "--enable-cassert" if build.include? "with-cassert"
+    args << "--enable-cassert" if build.with? "cassert"
 
     system "./configure", *args
     system "make", "install"
