@@ -1,19 +1,17 @@
-class Postgresql90 < Formula
+class PostgresqlAT84 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.0.23/postgresql-9.0.23.tar.bz2"
-  sha256 "3dbcbe19c814139a3f4be8bc6b49db804753cbc49979f345083e835c52b4d7de"
+  url "https://ftp.postgresql.org/pub/source/v8.4.22/postgresql-8.4.22.tar.bz2"
+  sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
+  head "https://git.postgresql.org/git/postgresql.git", :branch => "REL8_4_STABLE"
 
-  head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_0_STABLE"
-
-    depends_on "open-sp" => :build
-    depends_on "petere/sgml/docbook-dsssl" => :build
-    depends_on "petere/sgml/docbook-sgml" => :build
-    depends_on "petere/sgml/openjade" => :build
+  devel do
+    url "https://github.com/credativ/postgresql-lts/releases/download/REL8_4_22LTS6/postgresql-8.4.22lts6.tar.bz2"
+    version "8.4.22lts6"
+    sha256 "cf6c248e91df6d6aa5d0985f0c2aa4a576215faaf038c85bbdd182552a4bf3c9"
   end
 
-  keg_only "The different provided versions of PostgreSQL conflict with each other."
+  keg_only :versioned_formula
 
   deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"
@@ -33,7 +31,7 @@ class Postgresql90 < Formula
       --prefix=#{prefix}
       --enable-dtrace
       --enable-nls
-      --with-bonjour
+      --enable-thread-safety
       --with-gssapi
       --with-krb5
       --with-ldap
@@ -60,7 +58,8 @@ class Postgresql90 < Formula
     args << "--enable-cassert" if build.with? "cassert"
 
     system "./configure", *args
-    system "make", "install-world"
+    system "make", "install"
+    system "make", "-C", "contrib", "install"
   end
 
   def caveats; <<-EOS.undent

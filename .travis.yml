@@ -11,16 +11,16 @@ env:
   global:
     - SGML_CATALOG_FILES=/usr/local/etc/sgml/catalog
   matrix:
-    - PACKAGE=postgresql-8.3
-    - PACKAGE=postgresql-8.4
-    - PACKAGE=postgresql-9.0
-    - PACKAGE=postgresql-9.1
-    - PACKAGE=postgresql-9.2
-    - PACKAGE=postgresql-9.3
-    - PACKAGE=postgresql-9.4
-    - PACKAGE=postgresql-9.5
-    - PACKAGE=postgresql-9.6
-    - PACKAGE=postgresql-10 install_opt='--HEAD'
+    - PACKAGE=postgresql@8.3
+    - PACKAGE=postgresql@8.4
+    - PACKAGE=postgresql@9.0
+    - PACKAGE=postgresql@9.1
+    - PACKAGE=postgresql@9.2
+    - PACKAGE=postgresql@9.3
+    - PACKAGE=postgresql@9.4
+    - PACKAGE=postgresql@9.5
+    - PACKAGE=postgresql@9.6
+    - PACKAGE=postgresql@10 install_opt='--HEAD'
     - PACKAGE=postgresql-common install_opt='--HEAD'
 script:
   - brew install --build-bottle -v $install_opt $PACKAGE

@@ -10,13 +10,13 @@ Just `brew tap petere/postgresql` and then `brew install <formula>`.
 Details
 -------
 
-Since PostgreSQL major releases have incompatible data directories and other occasional incompatibilities, it is useful for many developers to keep several major versions installed in parallel for development, testing, and production.  So far, Homebrew did not support that (the bogus `postgresql8` and `postgresql9` formulae in `homebrew-versions` notwithstanding).  This tap provides versioned formulae named `postgresql-9.1`, `postgresql-9.2`, etc. that you can install in parallel.  Technically, these are "keg-only", which has the nice side effect that they are automatically installed in side-by-side directories `/usr/local/opt/postgresql-9.1/` etc.
+Since PostgreSQL major releases have incompatible data directories and other occasional incompatibilities, it is useful for many developers to keep several major versions installed in parallel for development, testing, and production.  So far, Homebrew had inconsistent support for that and did not provide the full range of supported major versions.  This tap provides versioned formulae named `postgresql@9.1`, `postgresql@9.2`, etc. that you can install in parallel.  Technically, these are "keg-only", which has the nice side effect that they are automatically installed in side-by-side directories `/usr/local/opt/postgresql@9.1/` etc.
 
 To use the programs installed by these formulae, do one or more of the following, in increasing order of preference:
 
-- Call all programs explicitly with `/usr/local/opt/postgresql-9.2/bin/...`.  This will be boring in the long run.
-- Add your preferred `/usr/local/opt/postgresql-x.y/bin` etc. to your path.  Preferably to the front, to come before the operating system's PostgreSQL installation.  This will work alright, but depending on your setup, it might be difficult to get everything on the OS to see the same path.
-- `brew link -f` the `postgresql-x.y` formula you prefer to use.
+- Call all programs explicitly with `/usr/local/opt/postgresql@9.2/bin/...`.  This will be boring in the long run.
+- Add your preferred `/usr/local/opt/postgresql@x.y/bin` etc. to your path.  Preferably to the front, to come before the operating system's PostgreSQL installation.  This will work alright, but depending on your setup, it might be difficult to get everything on the OS to see the same path.
+- `brew link -f` the `postgresql@x.y` formula you prefer to use.
 - Install the `postgresql-common` package (see below).
 
 The versioned formulae can be installed alongside the main `postgresql` formula in Homebrew.  But there will be a conflict if you do `brew link -f` or install `postgresql-common`, so in those cases you have to uninstall the main `postgresql` package first.  This is not a problem, however, because the versioned packages provide the same functionality.
@@ -50,4 +50,4 @@ To install extensions, I recommend
 PostgreSQL installations and can easily support to the installation
 scheme used by these packages.  Example:
 
-    pex -g /usr/local/opt/postgresql-9.4 install ip4r
+    pex -g /usr/local/opt/postgresql@9.4 install ip4r

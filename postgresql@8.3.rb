@@ -1,43 +1,37 @@
-class Postgresql96 < Formula
+class PostgresqlAT83 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "9.6.2"
-  url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "0187b5184be1c09034e74e44761505e52357248451b0c854dddec6c231fe50c9"
+  url "https://ftp.postgresql.org/pub/source/v8.3.23/postgresql-8.3.23.tar.bz2"
+  sha256 "17a46617ddbeb16f37d79b43f4e72301b051e6ef888a2eac960375bf579018d9"
+  head "https://git.postgresql.org/git/postgresql.git", :branch => "REL8_3_STABLE"
 
-  head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_6_STABLE"
-
-    depends_on "open-sp" => :build
-    depends_on "petere/sgml/docbook-dsssl" => :build
-    depends_on "petere/sgml/docbook-sgml" => :build
-    depends_on "petere/sgml/openjade" => :build
-  end
-
-  keg_only "The different provided versions of PostgreSQL conflict with each other."
+  keg_only :versioned_formula
 
   deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"
 
-  depends_on "e2fsprogs"
-  depends_on "gettext"
   depends_on "homebrew/dupes/openldap"
   depends_on "openssl"
+  depends_on "ossp-uuid"
   depends_on "readline"
   depends_on "homebrew/dupes/tcl-tk"
+
+  # Fix PL/Python build: https://github.com/mxcl/homebrew/issues/11162
+  # Fix uuid-ossp build issues: https://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
+  patch :DATA
 
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-dtrace
-      --enable-nls
-      --with-bonjour
+      --mandir=#{man}
+      --enable-thread-safety
       --with-gssapi
+      --with-krb5
       --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
-      --with-uuid=e2fs
+      --with-ossp-uuid
       --with-pam
       --with-perl
       --with-python
@@ -48,17 +42,17 @@ class Postgresql96 < Formula
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
     # when compiling this package, but won't record it for pg_config.
-    deps = %w[gettext openldap openssl readline tcl-tk]
+    deps = %w[openldap openssl readline tcl-tk]
     with_includes = deps.map { |f| Formula[f].opt_include }.join(":")
     with_libraries = deps.map { |f| Formula[f].opt_lib }.join(":")
     args << "--with-includes=#{with_includes}"
     args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.with? "cassert"
-    args << "--with-extra-version=+git" if build.head?
 
     system "./configure", *args
-    system "make", "install-world"
+    system "make", "install"
+    system "make", "-C", "contrib", "install"
   end
 
   def caveats; <<-EOS.undent
@@ -80,3 +74,28 @@ class Postgresql96 < Formula
     system "#{bin}/initdb", "pgdata"
   end
 end
+
+
+__END__
+--- a/src/pl/plpython/Makefile  2011-09-23 08:03:52.000000000 +1000
++++ b/src/pl/plpython/Makefile  2011-10-26 21:43:40.000000000 +1100
+@@ -24,8 +24,6 @@
+ # Darwin (OS X) has its own ideas about how to do this.
+ ifeq ($(PORTNAME), darwin)
+ shared_libpython = yes
+-override python_libspec = -framework Python
+-override python_additional_libs =
+ endif
+
+ # If we don't have a shared library and the platform doesn't allow it
+--- a/contrib/uuid-ossp/uuid-ossp.c     2012-07-30 18:34:53.000000000 -0700
++++ b/contrib/uuid-ossp/uuid-ossp.c     2012-07-30 18:35:03.000000000 -0700
+@@ -9,6 +9,8 @@
+  *-------------------------------------------------------------------------
+  */
+
++#define _XOPEN_SOURCE
++
+ #include "postgres.h"
+ #include "fmgr.h"
+ #include "utils/builtins.h"

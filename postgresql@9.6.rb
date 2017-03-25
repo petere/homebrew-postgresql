@@ -1,9 +1,12 @@
-class Postgresql10 < Formula
+class PostgresqlAT96 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
+  version = "9.6.2"
+  url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
+  sha256 "0187b5184be1c09034e74e44761505e52357248451b0c854dddec6c231fe50c9"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_6_STABLE"
 
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-dsssl" => :build
@@ -11,7 +14,7 @@ class Postgresql10 < Formula
     depends_on "petere/sgml/openjade" => :build
   end
 
-  keg_only "The different provided versions of PostgreSQL conflict with each other."
+  keg_only :versioned_formula
 
   deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"

@@ -1,4 +1,4 @@
-class Postgresql94 < Formula
+class PostgresqlAT94 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
   version = "9.4.11"
@@ -14,7 +14,7 @@ class Postgresql94 < Formula
     depends_on "petere/sgml/openjade" => :build
   end
 
-  keg_only "The different provided versions of PostgreSQL conflict with each other."
+  keg_only :versioned_formula
 
   deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"
