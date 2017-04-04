@@ -17,11 +17,11 @@ class PostgresqlAT84 < Formula
   option "with-cassert", "Enable assertion checks (for debugging)"
 
   depends_on "gettext"
-  depends_on "homebrew/dupes/openldap"
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "ossp-uuid"
   depends_on "readline"
-  depends_on "homebrew/dupes/tcl-tk"
+  depends_on "tcl-tk"
 
   # Fix uuid-ossp build issues: https://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
