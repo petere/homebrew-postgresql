@@ -16,9 +16,12 @@ class PostgresqlAT10 < Formula
   deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"
 
+  depends_on "pkg-config" => :build
+
   depends_on "e2fsprogs"
   depends_on "gettext"
   depends_on "homebrew/dupes/openldap"
+  depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
   depends_on "homebrew/dupes/tcl-tk"
@@ -30,6 +33,7 @@ class PostgresqlAT10 < Formula
       --enable-nls
       --with-bonjour
       --with-gssapi
+      --with-icu
       --with-ldap
       --with-libxml
       --with-libxslt
@@ -45,7 +49,7 @@ class PostgresqlAT10 < Formula
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
     # when compiling this package, but won't record it for pg_config.
-    deps = %w[gettext openldap openssl readline tcl-tk]
+    deps = %w[gettext icu4c openldap openssl readline tcl-tk]
     with_includes = deps.map { |f| Formula[f].opt_include }.join(":")
     with_libraries = deps.map { |f| Formula[f].opt_lib }.join(":")
     args << "--with-includes=#{with_includes}"
