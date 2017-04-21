@@ -24,7 +24,7 @@ The versioned formulae can be installed alongside the main `postgresql` formula 
 Build options
 -------------
 
-The standard `postgresql` formula in Homebrew is missing a number of build options and also has a number of build options that I find useless.  These formulae enable all `configure` options that OS X can support, but also remove a number of Homebrew-level build options, to reduce complexity.  I have also dropped supported for legacy OS X concerns, such as 32-bit Intel and PowerPC and really old OS X releases.  Mainly because I can't test that anymore, YMMV.
+The standard `postgresql` formula in Homebrew is missing a number of build options and also has a number of build options that I find useless.  These formulae enable all `configure` options that macOS can support, but also remove a number of Homebrew-level build options, to reduce complexity.  I have also dropped supported for legacy macOS concerns, such as 32-bit Intel and PowerPC and really old macOS releases.  Mainly because I can't test that anymore, YMMV.
 
 postgresql-common cluster manager
 ---------------------------------
