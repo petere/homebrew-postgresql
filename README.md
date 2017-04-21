@@ -31,7 +31,7 @@ postgresql-common cluster manager
 
 `postgresql-common` is a port of the postgresql-common package from Debian, which contains programs that help manage these multiple versioned installations, and programs to manage multiple PostgreSQL instances (clusters).  The port a bit experimental, but it works.
 
-See `/usr/local/Cellar/postgresql-common/HEAD/README.Debian` to get started.  If you have used Debian or Ubuntu before, you'll feel right at home (I hope).
+See `/usr/local/opt/postgresql-common/README.Debian` to get started.  If you have used Debian or Ubuntu before, you'll feel right at home (I hope).
 
 The general idea is that for server-side operations you use the special wrapper scripts `pg_createcluster`, `pg_dropcluster`, `pg_ctlcluster`, and `pg_lsclusters` instead of `initdb` and `pg_ctl`.  The scripts take version numbers and instance names (which map to directory names).  For example:
 
