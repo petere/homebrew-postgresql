@@ -6,9 +6,7 @@ class PostgresqlAT10 < Formula
     url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
 
     depends_on "open-sp" => :build
-    depends_on "petere/sgml/docbook-dsssl" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
-    depends_on "petere/sgml/openjade" => :build
   end
 
   keg_only :versioned_formula
