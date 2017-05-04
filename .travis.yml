@@ -26,7 +26,7 @@ script:
   - brew install --build-bottle -v $install_opt $PACKAGE
   - brew postinstall $PACKAGE
   - case $install_opt in *devel* | *HEAD*) ;; *) brew bottle --rb --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
-  - case $install_opt in *devel* | *HEAD*) ;; *) brew audit $PACKAGE;; esac
+  - brew audit --except=file,specs $PACKAGE
   - brew test $PACKAGE
 deploy:
   provider: releases
