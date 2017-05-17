@@ -1,5 +1,6 @@
 Homebrew PostgreSQL things
 ==========================
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/petere/homebrew-postgresql?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 These formulae allow installing multiple versions of PostgreSQL in parallel.  This is similar to what you can do on certain Linux distributions, for example Debian.
 
