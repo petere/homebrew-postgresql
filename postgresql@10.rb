@@ -3,10 +3,10 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
 
   devel do
-    version = "10beta1"
+    version = "10beta2"
     version version
     url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-    sha256 "7eee02e6f6646c7d4d6e78893a4ff638cfa5f1025b706712da8c6ef2257b5e29"
+    sha256 "0d6b50236039fc92e8784bd908b452c38ef63c0f9029f34e7115fbc30e17b195"
   end
 
   head do
