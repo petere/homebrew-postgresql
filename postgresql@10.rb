@@ -10,7 +10,7 @@ class PostgresqlAT10 < Formula
   end
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_10_STABLE"
 
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
