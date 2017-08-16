@@ -1,16 +1,9 @@
-class PostgresqlAT10 < Formula
+class PostgresqlAT11 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
 
-  devel do
-    version = "10beta3"
-    version version
-    url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-    sha256 "6722546739f8e2dd379e8031784e86c5c588638df6c477046ebdd479586bcb3e"
-  end
-
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_10_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
 
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
