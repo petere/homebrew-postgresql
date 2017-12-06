@@ -6,7 +6,7 @@ install:
   - mkdir -p $(brew --repo)/Library/Taps/travis
   - ln -s $PWD $(brew --repo)/Library/Taps/travis/homebrew-testtap
   - brew tap --repair
-  - gem install rubocop
+  - gem install rubocop -v 0.50.0
 env:
   global:
     - SGML_CATALOG_FILES=/usr/local/etc/sgml/catalog
