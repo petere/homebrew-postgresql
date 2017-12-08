@@ -4,9 +4,6 @@ class PostgresqlAT11 < Formula
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
-
-    depends_on "open-sp" => :build
-    depends_on "petere/sgml/docbook-sgml" => :build
   end
 
   keg_only :versioned_formula
