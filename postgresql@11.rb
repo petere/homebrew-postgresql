@@ -51,7 +51,11 @@ class PostgresqlAT11 < Formula
     args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.with? "cassert"
-    args << "--with-extra-version=+git" if build.head?
+
+    extra_version = ""
+    extra_version += "+git" if build.head?
+    extra_version += " (Homebrew petere/postgresql)"
+    args << "--with-extra-version=#{extra_version}"
 
     system "./configure", *args
     system "make", "install-world"
