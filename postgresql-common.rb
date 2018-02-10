@@ -15,10 +15,13 @@ class PostgresqlCommon < Formula
     :because => "both install the same binaries."
 
   def install
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_bin
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+
     %w[Makefile PgCommon.pm].each do |f|
       inreplace f, "/usr/local/opt", HOMEBREW_PREFIX/"opt"
     end
-    system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}", "localstatedir=#{var}"
+    system "make", "install", "GSED=sed", "prefix=#{prefix}", "sysconfdir=#{etc}", "localstatedir=#{var}"
     prefix.install "debian/README.Debian", "architecture.html"
 
     (var/"lib/postgresql").mkpath
