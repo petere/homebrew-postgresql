@@ -8,6 +8,7 @@ class PostgresqlAT10 < Formula
   head do
     url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_10_STABLE"
 
+    depends_on "docbook-xsl" => :build
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
   end
@@ -62,6 +63,8 @@ class PostgresqlAT10 < Formula
     extra_version += "+git" if build.head?
     extra_version += " (Homebrew petere/postgresql)"
     args << "--with-extra-version=#{extra_version}"
+
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     system "./configure", *args
     system "make", "install-world"

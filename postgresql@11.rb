@@ -4,6 +4,8 @@ class PostgresqlAT11 < Formula
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
+
+    depends_on "docbook-xsl" => :build
   end
 
   keg_only :versioned_formula
@@ -56,6 +58,8 @@ class PostgresqlAT11 < Formula
     extra_version += "+git" if build.head?
     extra_version += " (Homebrew petere/postgresql)"
     args << "--with-extra-version=#{extra_version}"
+
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     system "./configure", *args
     system "make", "install-world"

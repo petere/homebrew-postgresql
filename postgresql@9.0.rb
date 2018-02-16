@@ -7,6 +7,7 @@ class PostgresqlAT90 < Formula
   head do
     url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_0_STABLE"
 
+    depends_on "docbook-xsl" => :build
     depends_on "open-sp" => :build
     depends_on "petere/sgml/docbook-dsssl" => :build
     depends_on "petere/sgml/docbook-sgml" => :build
@@ -58,6 +59,8 @@ class PostgresqlAT90 < Formula
     args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.with? "cassert"
+
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     system "./configure", *args
     system "make", "install-world"
