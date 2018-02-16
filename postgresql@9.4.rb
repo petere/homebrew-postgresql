@@ -68,7 +68,7 @@ class PostgresqlAT94 < Formula
     system "make", "install-world"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use this PostgreSQL installation, do one or more of the following:
 
     - Call all programs explicitly with #{opt_prefix}/bin/...
