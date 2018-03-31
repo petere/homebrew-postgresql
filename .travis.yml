@@ -24,20 +24,7 @@ env:
     - PACKAGE=postgresql@11 install_opt='--HEAD'
     - PACKAGE=postgresql-common
 script:
-  - brew install --build-bottle -v $install_opt $PACKAGE
+  - brew install -v $install_opt $PACKAGE
   - brew postinstall $PACKAGE
-  - case $install_opt in *devel* | *HEAD*) ;; *) brew bottle --rb --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
   - brew audit --except=file,specs $PACKAGE
   - brew test $PACKAGE
-deploy:
-  provider: releases
-  api_key:
-    secure: Rl0W8zJATaitqqLigTHjk1JG1JvkW8y5R2E2tpd5rZNy9NtQaS9o+zAMnyjX+TsJhWajL3s41IP7duZ3EyIdoYCsuM9IgJrpoWM1VK5VTvPO3FnZXNCp3W8iTkRP6/KSKTWKrjcgiK2yLOJlPeiQO02OWBvurWpb4Jo0wX16kxk=
-  file_glob: true
-  file:
-    - "*.bottle.rb"
-    - "*.bottle.tar.gz"
-  skip_cleanup: true
-  on:
-    repo: petere/homebrew-postgresql
-    tags: true
