@@ -21,7 +21,8 @@ env:
     - PACKAGE=postgresql@9.5
     - PACKAGE=postgresql@9.6
     - PACKAGE=postgresql@10
-    - PACKAGE=postgresql@11 install_opt='--HEAD'
+    - PACKAGE=postgresql@11 install_opt='--devel'
+    - PACKAGE=postgresql@12 install_opt='--HEAD'
     - PACKAGE=postgresql-common
 script:
   - brew install -v $install_opt $PACKAGE
