@@ -2,10 +2,10 @@ class PostgresqlAT11 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
   devel do
-    version = "11beta2"
+    version = "11beta3"
     version version
     url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-    sha256 "31e28f46b0529e5be937423bc040eff2787bc399ba0ebd725510aea30274b463"
+    sha256 "82babba086ea7297d78f3ce2298296cd22fc1bb10ba315e8b4ff661658a8044d"
   end
 
   head do
