@@ -17,6 +17,7 @@ class PostgresqlAT12 < Formula
 
   depends_on "e2fsprogs"
   depends_on "gettext"
+  depends_on "llvm" => :optional
   depends_on "openldap"
   depends_on "icu4c"
   depends_on "openssl"
@@ -53,6 +54,7 @@ class PostgresqlAT12 < Formula
     args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.with? "cassert"
+    args << "--with-llvm" if build.with? "llvm"
 
     extra_version = ""
     extra_version += "+git" if build.head?
