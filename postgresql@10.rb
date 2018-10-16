@@ -15,15 +15,15 @@ class PostgresqlAT10 < Formula
 
   keg_only :versioned_formula
 
-  deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"
+  deprecated_option "enable-cassert" => "with-cassert"
 
   depends_on "pkg-config" => :build
 
   depends_on "e2fsprogs"
   depends_on "gettext"
-  depends_on "openldap"
   depends_on "icu4c"
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "readline"
   depends_on "tcl-tk"

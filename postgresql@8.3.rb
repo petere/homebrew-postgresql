@@ -7,8 +7,8 @@ class PostgresqlAT83 < Formula
 
   keg_only :versioned_formula
 
-  deprecated_option "enable-cassert" => "with-cassert"
   option "with-cassert", "Enable assertion checks (for debugging)"
+  deprecated_option "enable-cassert" => "with-cassert"
 
   depends_on "openldap"
   depends_on "openssl"
