@@ -8,8 +8,8 @@ class PostgresqlCommon < Formula
 
   head "https://github.com/petere/postgresql-common.git", :branch => "homebrew"
 
-  depends_on "coreutils"
   depends_on "gnu-sed" => :build
+  depends_on "coreutils"
 
   conflicts_with "postgresql",
     :because => "both install the same binaries."
