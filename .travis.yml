@@ -22,7 +22,8 @@ env:
     - PACKAGE=postgresql@9.6
     - PACKAGE=postgresql@10
     - PACKAGE=postgresql@11
-    - PACKAGE=postgresql@12 install_opt='--HEAD'
+    - PACKAGE=postgresql@12 install_opt='--devel'
+    - PACKAGE=postgresql@13 install_opt='--HEAD'
     - PACKAGE=postgresql-common
 script:
   - brew install -v $install_opt $TRAVIS_REPO_SLUG/$PACKAGE

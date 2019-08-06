@@ -1,15 +1,9 @@
-class PostgresqlAT12 < Formula
+class PostgresqlAT13 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  devel do
-    version = "12beta2"
-    version version
-    url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-    sha256 "1738da8e1e59d4f2dc69c216e67100c6d4dad46714cf597cc2db66077204d31f"
-  end
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_12_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
 
     depends_on "docbook-xsl" => :build
   end
