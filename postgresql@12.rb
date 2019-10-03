@@ -1,12 +1,9 @@
 class PostgresqlAT12 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  devel do
-    version = "12rc1"
-    version version
-    url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-    sha256 "40facd3280d8565f37139d2c5df2b94fe68a064c5d2784f74fceae24820543f3"
-  end
+  version = "12.0"
+  url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
+  sha256 "cda2397215f758b793f741c86be05468257b0e6bcb1a6113882ab5d0df0855c6"
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_12_STABLE"
