@@ -53,9 +53,16 @@ class PostgresqlAT92 < Formula
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
     # when compiling this package, but won't record it for pg_config.
-    deps = %w[gettext openldap openssl readline tcl-tk]
-    with_includes = deps.map { |f| Formula[f].opt_include }.join(":")
-    with_libraries = deps.map { |f| Formula[f].opt_lib }.join(":")
+    brew_deps = %w[gettext openldap openssl readline tcl-tk]
+
+    sys_deps_includes = %W[
+      #{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE
+    ]
+    brew_deps_includes = brew_deps.map { |f| Formula[f].opt_include }
+    deps_includes = sys_deps_includes + brew_deps_includes
+
+    with_includes = deps_includes.join(":")
+    with_libraries = brew_deps.map { |f| Formula[f].opt_lib }.join(":")
     args << "--with-includes=#{with_includes}"
     args << "--with-libraries=#{with_libraries}"
 
