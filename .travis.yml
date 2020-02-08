@@ -26,7 +26,7 @@ env:
     - PACKAGE=postgresql@13 install_opt='--HEAD'
     - PACKAGE=postgresql-common
 script:
-  - brew install -v $install_opt $TRAVIS_REPO_SLUG/$PACKAGE
-  - brew postinstall $TRAVIS_REPO_SLUG/$PACKAGE
-  - brew audit --except=file,specs $TRAVIS_REPO_SLUG/$PACKAGE
-  - brew test $TRAVIS_REPO_SLUG/$PACKAGE
+  - brew install -v $install_opt travis/testtap/$PACKAGE
+  - brew postinstall travis/testtap/$PACKAGE
+  - brew audit --except=file,specs travis/testtap/$PACKAGE
+  - brew test travis/testtap/$PACKAGE
