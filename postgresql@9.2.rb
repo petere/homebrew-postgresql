@@ -22,7 +22,7 @@ class PostgresqlAT92 < Formula
 
   depends_on "gettext"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "ossp-uuid"
   depends_on "readline"
   depends_on "tcl-tk"
@@ -53,7 +53,7 @@ class PostgresqlAT92 < Formula
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
     # when compiling this package, but won't record it for pg_config.
-    deps = %w[gettext openldap openssl readline tcl-tk]
+    deps = %w[gettext openldap openssl@1.1 readline tcl-tk]
     with_includes = deps.map { |f| Formula[f].opt_include }.join(":")
     with_libraries = deps.map { |f| Formula[f].opt_lib }.join(":")
     args << "--with-includes=#{with_includes}"
