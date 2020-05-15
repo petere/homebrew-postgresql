@@ -67,18 +67,19 @@ class PostgresqlAT93 < Formula
     system "make", "install-world"
   end
 
-  def caveats; <<~EOS
-    To use this PostgreSQL installation, do one or more of the following:
+  def caveats
+    <<~EOS
+      To use this PostgreSQL installation, do one or more of the following:
 
-    - Call all programs explicitly with #{opt_prefix}/bin/...
-    - Add #{opt_bin} to your PATH
-    - brew link -f #{name}
-    - Install the postgresql-common package
+      - Call all programs explicitly with #{opt_prefix}/bin/...
+      - Add #{opt_bin} to your PATH
+      - brew link -f #{name}
+      - Install the postgresql-common package
 
-    To access the man pages, do one or more of the following:
-    - Refer to them by their full path, like `man #{opt_share}/man/man1/psql.1`
-    - Add #{opt_share}/man to your MANPATH
-    - brew link -f #{name}
+      To access the man pages, do one or more of the following:
+      - Refer to them by their full path, like `man #{opt_share}/man/man1/psql.1`
+      - Add #{opt_share}/man to your MANPATH
+      - brew link -f #{name}
     EOS
   end
 
