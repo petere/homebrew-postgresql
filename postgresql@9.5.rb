@@ -1,9 +1,9 @@
 class PostgresqlAT95 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "9.5.21"
+  version = "9.5.22"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "7eb56e4fa877243c2df78adc5a0ef02f851060c282682b4bb97b854100fb732c"
+  sha256 "48555470a17248cb204d25ab1ad4231ef16295db55161922f006b9942d69640f"
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_5_STABLE"
