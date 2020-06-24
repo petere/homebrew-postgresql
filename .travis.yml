@@ -23,7 +23,7 @@ env:
     - PACKAGE=postgresql@10
     - PACKAGE=postgresql@11
     - PACKAGE=postgresql@12
-    - PACKAGE=postgresql@13 install_opt='--devel'
+    - PACKAGE=postgresql@13
     - PACKAGE=postgresql@14 install_opt='--HEAD'
     - PACKAGE=postgresql-common
 script:
