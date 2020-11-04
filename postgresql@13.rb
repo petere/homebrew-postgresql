@@ -6,7 +6,7 @@ class PostgresqlAT13 < Formula
   sha256 "80e750be8d436b54197636a02636f8fd3263ba6779bf865b04832495ea592296"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_13_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_13_STABLE"
 
     depends_on "docbook-xsl" => :build
   end

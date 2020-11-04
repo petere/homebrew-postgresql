@@ -6,7 +6,7 @@ class PostgresqlAT12 < Formula
   sha256 "bee93fbe2c32f59419cb162bcc0145c58da9a8644ee154a30b9a5ce47de606cc"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL_12_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_12_STABLE"
 
     depends_on "docbook-xsl" => :build
   end

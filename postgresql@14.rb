@@ -3,7 +3,7 @@ class PostgresqlAT14 < Formula
   homepage "https://www.postgresql.org/"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "master"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
 
     depends_on "docbook-xsl" => :build
   end

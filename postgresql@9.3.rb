@@ -6,7 +6,7 @@ class PostgresqlAT93 < Formula
   sha256 "e4953e80415d039ccd33d34be74526a090fd585cf93f296cd9c593972504b6db"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", :branch => "REL9_3_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL9_3_STABLE"
 
     depends_on "docbook-xsl" => :build
     depends_on "open-sp" => :build
