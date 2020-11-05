@@ -18,7 +18,6 @@ class PostgresqlAT11 < Formula
 
   depends_on "pkg-config" => :build
 
-  depends_on "e2fsprogs"
   depends_on "gettext"
   depends_on "icu4c"
   depends_on "openldap"
