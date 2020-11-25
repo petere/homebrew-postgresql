@@ -24,6 +24,7 @@ class PostgresqlAT92 < Formula
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "ossp-uuid"
+  depends_on "perl"
   depends_on "readline"
   depends_on "tcl-tk"
 

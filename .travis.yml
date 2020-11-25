@@ -1,4 +1,5 @@
-language: objective-c
+os: osx
+osx_image: xcode12.2
 before_install:
   - brew update
   - brew list | grep -q -w postgresql && brew unlink postgresql
@@ -10,22 +11,30 @@ install:
 env:
   global:
     - SGML_CATALOG_FILES=/usr/local/etc/sgml/catalog
-  matrix:
-    - PACKAGE=postgresql@8.3
-    - PACKAGE=postgresql@8.4
-    - PACKAGE=postgresql@9.0
-    - PACKAGE=postgresql@9.1
-    - PACKAGE=postgresql@9.2
-    - PACKAGE=postgresql@9.3
-    - PACKAGE=postgresql@9.4
-    - PACKAGE=postgresql@9.5
-    - PACKAGE=postgresql@9.6
-    - PACKAGE=postgresql@10
-    - PACKAGE=postgresql@11
-    - PACKAGE=postgresql@12
-    - PACKAGE=postgresql@13
-    - PACKAGE=postgresql@14 install_opt='--HEAD'
-    - PACKAGE=postgresql-common
+jobs:
+  include:
+  - env: PACKAGE=postgresql@8.3
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@8.4
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@9.0
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@9.1
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@9.2
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@9.3
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@9.4
+    osx_image: xcode11.3
+  - env: PACKAGE=postgresql@9.5
+  - env: PACKAGE=postgresql@9.6
+  - env: PACKAGE=postgresql@10
+  - env: PACKAGE=postgresql@11
+  - env: PACKAGE=postgresql@12
+  - env: PACKAGE=postgresql@13
+  - env: PACKAGE=postgresql@14 install_opt='--HEAD'
+  - env: PACKAGE=postgresql-common
 script:
   - brew install -v $install_opt travis/testtap/$PACKAGE
   - brew postinstall travis/testtap/$PACKAGE
