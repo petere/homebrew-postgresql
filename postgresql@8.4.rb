@@ -10,6 +10,9 @@ class PostgresqlAT84 < Formula
   option "with-cassert", "Enable assertion checks (for debugging)"
   deprecated_option "enable-cassert" => "with-cassert"
 
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2014-07-24", because: :unsupported
+
   depends_on "gettext"
   depends_on "openldap"
   depends_on "ossp-uuid"

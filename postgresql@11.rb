@@ -16,6 +16,9 @@ class PostgresqlAT11 < Formula
   option "with-cassert", "Enable assertion checks (for debugging)"
   deprecated_option "enable-cassert" => "with-cassert"
 
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2023-11-09", because: :unsupported
+
   depends_on "pkg-config" => :build
 
   depends_on "gettext"
