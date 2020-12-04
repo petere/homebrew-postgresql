@@ -6,13 +6,12 @@ class PostgresqlCommon < Formula
   version version
   sha256 "8db9347cdecee81507dcd92d61c9f20f72d5ed4fac9a1a8afe93e75e9398bc84"
 
-  head "https://github.com/petere/postgresql-common.git", :branch => "homebrew"
+  head "https://github.com/petere/postgresql-common.git", branch: "homebrew"
 
   depends_on "gnu-sed" => :build
   depends_on "coreutils"
 
-  conflicts_with "postgresql",
-    :because => "both install the same binaries."
+  conflicts_with "postgresql", because: "both install the same binaries"
 
   def install
     ENV.prepend_path "PATH", Formula["gnu-sed"].opt_bin
