@@ -5,6 +5,7 @@ class PostgresqlCommon < Formula
   url "https://github.com/petere/postgresql-common/archive/#{version}.tar.gz"
   version version
   sha256 "8db9347cdecee81507dcd92d61c9f20f72d5ed4fac9a1a8afe93e75e9398bc84"
+  license "GPL-2.0-or-later"
 
   head "https://github.com/petere/postgresql-common.git", branch: "homebrew"
 

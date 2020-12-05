@@ -1,6 +1,7 @@
 class PostgresqlAT14 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
+  license "PostgreSQL"
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "master"

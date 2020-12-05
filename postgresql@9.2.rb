@@ -4,6 +4,7 @@ class PostgresqlAT92 < Formula
   version = "9.2.24"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   sha256 "a754c02f7051c2f21e52f8669a421b50485afcde9a581674d6106326b189d126"
+  license "PostgreSQL"
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "REL9_2_STABLE"

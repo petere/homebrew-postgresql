@@ -4,6 +4,7 @@ class PostgresqlAT11 < Formula
   version = "11.10"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   sha256 "13e6d2f80662fe463bc7718cdf0de6a9ec67fc78afcc7a3ae66b9ea19bb97899"
+  license "PostgreSQL"
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "REL_11_STABLE"

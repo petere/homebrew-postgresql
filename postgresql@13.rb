@@ -4,6 +4,7 @@ class PostgresqlAT13 < Formula
   version = "13.1"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   sha256 "12345c83b89aa29808568977f5200d6da00f88a035517f925293355432ffe61f"
+  license "PostgreSQL"
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "REL_13_STABLE"
