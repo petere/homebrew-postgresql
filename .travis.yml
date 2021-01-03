@@ -2,7 +2,7 @@ os: osx
 osx_image: xcode12.2
 before_install:
   - brew update
-  - brew list | grep -q -w postgresql && brew unlink postgresql
+  - brew list --formula | grep -q -w postgresql && brew unlink postgresql
 install:
   - mkdir -p $(brew --repo)/Library/Taps/travis
   - ln -s $PWD $(brew --repo)/Library/Taps/travis/homebrew-testtap
