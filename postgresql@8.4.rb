@@ -3,8 +3,8 @@ class PostgresqlAT84 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v8.4.22/postgresql-8.4.22.tar.bz2"
   sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
-  head "https://git.postgresql.org/git/postgresql.git", branch: "REL8_4_STABLE"
   license "PostgreSQL"
+  head "https://git.postgresql.org/git/postgresql.git", branch: "REL8_4_STABLE"
 
   keg_only :versioned_formula
 
