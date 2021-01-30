@@ -6,6 +6,11 @@ class PostgresqlAT13 < Formula
   sha256 "12345c83b89aa29808568977f5200d6da00f88a035517f925293355432ffe61f"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(13(?:\.\d+)*)/?["' >]}i)
+  end
+
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "REL_13_STABLE"
 

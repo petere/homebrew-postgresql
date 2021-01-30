@@ -6,6 +6,11 @@ class PostgresqlAT91 < Formula
   sha256 "de0d84e9f32af145fcd66d8d324f6ef1a0b17944ea344b7bbe9d99fff68ae5d3"
   license "PostgreSQL"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(9\.1(?:\.\d+)*)/?["' >]}i)
+  end
+
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "REL9_1_STABLE"
 

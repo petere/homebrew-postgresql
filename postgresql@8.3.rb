@@ -6,6 +6,11 @@ class PostgresqlAT83 < Formula
   license "PostgreSQL"
   head "https://git.postgresql.org/git/postgresql.git", branch: "REL8_3_STABLE"
 
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(8\.3(?:\.\d+)*)/?["' >]}i)
+  end
+
   keg_only :versioned_formula
 
   option "with-cassert", "Enable assertion checks (for debugging)"
