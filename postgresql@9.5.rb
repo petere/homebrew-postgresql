@@ -1,9 +1,9 @@
 class PostgresqlAT95 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "9.5.24"
+  version = "9.5.25"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "065cfd3db9f5aca84e794e73e71a797c984b2e728e760f4f4226a9162a99c22a"
+  sha256 "7628c55eb23768a2c799c018988d8f2ab48ee3d80f5e11259938f7a935f0d603"
   license "PostgreSQL"
 
   livecheck do
