@@ -1,10 +1,15 @@
 class PostgresqlAT96 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "9.6.20"
+  version = "9.6.21"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "3d08cba409d45ab62d42b24431a0d55e7537bcd1db2d979f5f2eefe34d487bb6"
+  sha256 "930feaef28885c97ec40c26ab6221903751eeb625de92b22602706d7d47d1634"
   license "PostgreSQL"
+
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/"
+    regex(%r{href=["']?v?(9\.6(?:\.\d+)*)/?["' >]}i)
+  end
 
   head do
     url "https://git.postgresql.org/git/postgresql.git", branch: "REL9_6_STABLE"
