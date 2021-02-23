@@ -98,6 +98,10 @@ class PostgresqlAT13 < Formula
     var/"postgres"
   end
 
+  def postgresql_log_path
+    var/"log/postgres.log"
+  end
+
   def plist
     <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
