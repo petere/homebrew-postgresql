@@ -94,6 +94,10 @@ class PostgresqlAT13 < Formula
     EOS
   end
 
+  def postgresql_datadir
+    var/"postgres"
+  end
+
   def plist
     <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
