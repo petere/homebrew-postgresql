@@ -18,6 +18,7 @@ class PostgresqlAT14 < Formula
 
   depends_on "gettext"
   depends_on "icu4c"
+  depends_on "lz4"
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "readline"
@@ -35,6 +36,7 @@ class PostgresqlAT14 < Formula
       --with-ldap
       --with-libxml
       --with-libxslt
+      --with-lz4
       --with-openssl
       --with-uuid=e2fs
       --with-pam
