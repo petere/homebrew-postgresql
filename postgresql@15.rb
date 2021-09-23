@@ -1,14 +1,10 @@
-class PostgresqlAT14 < Formula
+class PostgresqlAT15 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "14beta3"
-  url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  version version
-  sha256 "2ea265980193db70106576201a2fee5b2d72bf9890d3911ddd374d4830624bfa"
   license "PostgreSQL"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_14_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
 
     depends_on "docbook-xsl" => :build
   end
