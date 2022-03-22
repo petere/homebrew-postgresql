@@ -1,10 +1,13 @@
 class PostgresqlAT14 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
+  version = "14.2"
+  url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
+  sha256 "2cf78b2e468912f8101d695db5340cf313c2e9f68a612fb71427524e8c9a977a"
   license "PostgreSQL"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_14_STABLE"
 
     depends_on "docbook-xsl" => :build
   end
@@ -14,12 +17,17 @@ class PostgresqlAT14 < Formula
   option "with-cassert", "Enable assertion checks (for debugging)"
   deprecated_option "enable-cassert" => "with-cassert"
 
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2026-11-12", because: :unsupported
+
   depends_on "pkg-config" => :build
 
   depends_on "gettext"
   depends_on "icu4c"
+  depends_on "lz4"
   depends_on "openldap"
   depends_on "openssl@1.1"
+  depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "llvm" => :optional
@@ -35,12 +43,14 @@ class PostgresqlAT14 < Formula
       --with-ldap
       --with-libxml
       --with-libxslt
+      --with-lz4
       --with-openssl
       --with-uuid=e2fs
       --with-pam
       --with-perl
       --with-python
       --with-tcl
+      PYTHON=python3
       XML2_CONFIG=:
     ]
 

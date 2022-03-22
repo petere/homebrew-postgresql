@@ -33,7 +33,8 @@ jobs:
   - env: PACKAGE=postgresql@11
   - env: PACKAGE=postgresql@12
   - env: PACKAGE=postgresql@13
-  - env: PACKAGE=postgresql@14 install_opt='--HEAD'
+  - env: PACKAGE=postgresql@14
+  - env: PACKAGE=postgresql@15 install_opt='--HEAD'
   - env: PACKAGE=postgresql-common
 script:
   - brew install -v $install_opt travis/testtap/$PACKAGE

@@ -1,9 +1,9 @@
 class PostgresqlAT96 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "9.6.21"
+  version = "9.6.24"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "930feaef28885c97ec40c26ab6221903751eeb625de92b22602706d7d47d1634"
+  sha256 "aeb7a196be3ebed1a7476ef565f39722187c108dd47da7489be9c4fcae982ace"
   license "PostgreSQL"
 
   livecheck do
@@ -32,6 +32,7 @@ class PostgresqlAT96 < Formula
   depends_on "gettext"
   depends_on "openldap"
   depends_on "openssl@1.1"
+  depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
 
@@ -51,6 +52,7 @@ class PostgresqlAT96 < Formula
       --with-perl
       --with-python
       --with-tcl
+      PYTHON=#{Formula["python@3"].opt_bin/"python3"}
       XML2_CONFIG=:
     ]
 

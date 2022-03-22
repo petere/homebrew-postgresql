@@ -26,6 +26,11 @@ Build options
 
 The standard `postgresql` formula in Homebrew is missing a number of build options and also has a number of build options that I find useless.  These formulae enable all `configure` options that macOS can support, but also remove a number of Homebrew-level build options, to reduce complexity.  I have also dropped supported for legacy macOS concerns, such as 32-bit Intel and PowerPC and really old macOS releases.  Mainly because I can't test that anymore, YMMV.
 
+Old versions
+------------
+
+I keep old and deprecated versions of PostgreSQL in this repository instead of removing them, because they are sometimes useful to have handy, and also for curiosity.  But note that over time, the oldest versions will stop building and/or running on newer operating system versions.  The PostgreSQL major versions that are still maintained upstream are expected to work, but anything beyond that is best-effort and YMMV.
+
 postgresql-common cluster manager
 ---------------------------------
 

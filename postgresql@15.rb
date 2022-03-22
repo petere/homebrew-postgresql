@@ -1,24 +1,12 @@
-class PostgresqlAT94 < Formula
+class PostgresqlAT15 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "9.4.26"
-  url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
   license "PostgreSQL"
 
-  livecheck do
-    url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(9\.4(?:\.\d+)*)/?["' >]}i)
-  end
-
   head do
-    url "https://git.postgresql.org/git/postgresql.git", branch: "REL9_4_STABLE"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
 
     depends_on "docbook-xsl" => :build
-    depends_on "open-sp" => :build
-    depends_on "petere/sgml/docbook-dsssl" => :build
-    depends_on "petere/sgml/docbook-sgml" => :build
-    depends_on "petere/sgml/openjade" => :build
   end
 
   keg_only :versioned_formula
@@ -26,15 +14,17 @@ class PostgresqlAT94 < Formula
   option "with-cassert", "Enable assertion checks (for debugging)"
   deprecated_option "enable-cassert" => "with-cassert"
 
-  # https://www.postgresql.org/support/versioning/
-  deprecate! date: "2020-02-13", because: :unsupported
+  depends_on "pkg-config" => :build
 
   depends_on "gettext"
+  depends_on "icu4c"
+  depends_on "lz4"
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
+  depends_on "llvm" => :optional
 
   def install
     args = %W[
@@ -43,29 +33,32 @@ class PostgresqlAT94 < Formula
       --enable-nls
       --with-bonjour
       --with-gssapi
+      --with-icu
       --with-ldap
       --with-libxml
       --with-libxslt
+      --with-lz4
       --with-openssl
       --with-uuid=e2fs
       --with-pam
       --with-perl
       --with-python
       --with-tcl
-      PYTHON=#{Formula["python@3"].opt_bin/"python3"}
+      PYTHON=python3
       XML2_CONFIG=:
     ]
 
     # Add include and library directories of dependencies, so that
     # they can be used for compiling extensions.  Superenv does this
     # when compiling this package, but won't record it for pg_config.
-    deps = %w[gettext openldap openssl@1.1 readline tcl-tk]
+    deps = %w[gettext icu4c openldap openssl@1.1 readline tcl-tk]
     with_includes = deps.map { |f| Formula[f].opt_include }.join(":")
     with_libraries = deps.map { |f| Formula[f].opt_lib }.join(":")
     args << "--with-includes=#{with_includes}"
     args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.with? "cassert"
+    args << "--with-llvm" if build.with? "llvm"
 
     extra_version = ""
     extra_version += "+git" if build.head?

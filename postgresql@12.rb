@@ -1,9 +1,9 @@
 class PostgresqlAT12 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "12.6"
+  version = "12.10"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "df7dd98d5ccaf1f693c7e1d0d084e9fed7017ee248bba5be0167c42ad2d70a09"
+  sha256 "83dd192e6034951192b9a86dc19cf3717a8b82120e2f11a0a36723c820d2b257"
   license "PostgreSQL"
 
   livecheck do
@@ -31,6 +31,7 @@ class PostgresqlAT12 < Formula
   depends_on "icu4c"
   depends_on "openldap"
   depends_on "openssl@1.1"
+  depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "llvm" => :optional
@@ -52,6 +53,7 @@ class PostgresqlAT12 < Formula
       --with-perl
       --with-python
       --with-tcl
+      PYTHON=python3
       XML2_CONFIG=:
     ]
 

@@ -1,9 +1,9 @@
 class PostgresqlAT10 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "10.16"
+  version = "10.20"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "a35c718b1b6690e01c69626d467edb933784f8d1d6741e21fe6cce0738467bb3"
+  sha256 "87de16d59bcfe42fa605c312c59be5e294e8a3e6acb655dd7ad47cbb930a659f"
   license "PostgreSQL"
 
   livecheck do
@@ -33,6 +33,7 @@ class PostgresqlAT10 < Formula
   depends_on "icu4c"
   depends_on "openldap"
   depends_on "openssl@1.1"
+  depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
 
@@ -53,6 +54,7 @@ class PostgresqlAT10 < Formula
       --with-perl
       --with-python
       --with-tcl
+      PYTHON=python3
       XML2_CONFIG=:
     ]
 
