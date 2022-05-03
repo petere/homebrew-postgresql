@@ -33,6 +33,7 @@ class PostgresqlAT93 < Formula
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "ossp-uuid"
+  depends_on "perl"
   depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"

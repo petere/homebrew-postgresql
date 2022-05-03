@@ -1,0 +1,33 @@
+task:
+  name: macOS
+  osx_instance:
+    matrix:
+      - image: monterey-base
+  env:
+    matrix:
+      - PACKAGE: postgresql-common
+      - PACKAGE: postgresql@15
+        install_opt: '--HEAD'
+      - PACKAGE: postgresql@14
+      - PACKAGE: postgresql@13
+      - PACKAGE: postgresql@12
+      - PACKAGE: postgresql@11
+      - PACKAGE: postgresql@10
+      - PACKAGE: postgresql@9.6
+      - PACKAGE: postgresql@9.5
+      - PACKAGE: postgresql@9.4
+        install_opt: '--HEAD'
+      - PACKAGE: postgresql@9.3
+        install_opt: '--HEAD'
+      - PACKAGE: postgresql@9.2
+        install_opt: '--HEAD'
+  setup_script:
+    - brew update
+    - mkdir -p $(brew --repo)/Library/Taps/cirrus
+    - ln -s $PWD $(brew --repo)/Library/Taps/cirrus/homebrew-testtap
+    - brew tap --repair
+  build_script:
+    - brew install -v $install_opt cirrus/testtap/$PACKAGE
+    - brew postinstall cirrus/testtap/$PACKAGE
+    - brew audit --except=file,specs cirrus/testtap/$PACKAGE
+    - brew test cirrus/testtap/$PACKAGE
