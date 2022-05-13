@@ -24,6 +24,7 @@ class PostgresqlAT15 < Formula
   depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
+  depends_on "zstd"
   depends_on "llvm" => :optional
 
   def install
@@ -44,6 +45,7 @@ class PostgresqlAT15 < Formula
       --with-perl
       --with-python
       --with-tcl
+      --with-zstd
       PYTHON=python3
       XML2_CONFIG=:
     ]
