@@ -7,7 +7,6 @@ task:
     matrix:
       - PACKAGE: postgresql-common
       - PACKAGE: postgresql@15
-        install_opt: '--HEAD'
       - PACKAGE: postgresql@14
       - PACKAGE: postgresql@13
       - PACKAGE: postgresql@12
