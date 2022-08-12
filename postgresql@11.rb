@@ -1,9 +1,9 @@
 class PostgresqlAT11 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "11.16"
+  version = "11.17"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-  sha256 "2dd9e111f0a5949ee7cacc065cea0fb21092929bae310ce05bf01b4ffc5103a5"
+  sha256 "6e984963ae0765e61577995103a7e6594db0f0bd01528ac123e0de4a6a4cb4c4"
   license "PostgreSQL"
 
   livecheck do
