@@ -1,8 +1,8 @@
 task:
   name: macOS
-  osx_instance:
+  macos_instance:
     matrix:
-      - image: monterey-base
+      - image: ghcr.io/cirruslabs/macos-ventura-base:latest
   env:
     matrix:
       - PACKAGE: postgresql-common
