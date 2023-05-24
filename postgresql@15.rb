@@ -32,7 +32,7 @@ class PostgresqlAT15 < Formula
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "zstd"
-  depends_on "llvm@15" => :optional
+  #depends_on "llvm@15" => :optional
 
   def install
     args = %W[
@@ -66,7 +66,7 @@ class PostgresqlAT15 < Formula
     args << "--with-libraries=#{with_libraries}"
 
     args << "--enable-cassert" if build.with? "cassert"
-    args << "--with-llvm" if build.with? "llvm"
+    #args << "--with-llvm" if build.with? "llvm"
 
     extra_version = ""
     extra_version += "+git" if build.head?
