@@ -32,7 +32,7 @@ class PostgresqlAT96 < Formula
   depends_on "gettext"
   depends_on "openldap"
   depends_on "openssl@1.1"
-  depends_on "python@3"
+  depends_on "python@3.10"
   depends_on "readline"
   depends_on "tcl-tk"
 
@@ -52,7 +52,7 @@ class PostgresqlAT96 < Formula
       --with-perl
       --with-python
       --with-tcl
-      PYTHON=#{Formula["python@3"].opt_bin/"python3"}
+      PYTHON=#{Formula["python@3.10"].opt_bin/"python3"}
       XML2_CONFIG=:
     ]
 
