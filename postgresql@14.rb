@@ -27,7 +27,7 @@ class PostgresqlAT14 < Formula
   depends_on "lz4"
   depends_on "openldap"
   depends_on "openssl@1.1"
-  depends_on "python@3"
+  depends_on "python@3.11"
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "llvm" => :optional
@@ -50,7 +50,6 @@ class PostgresqlAT14 < Formula
       --with-perl
       --with-python
       --with-tcl
-      PYTHON=python3
       XML2_CONFIG=:
     ]
 
