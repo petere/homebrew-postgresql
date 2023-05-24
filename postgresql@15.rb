@@ -28,7 +28,7 @@ class PostgresqlAT15 < Formula
   depends_on "lz4"
   depends_on "openldap"
   depends_on "openssl@1.1"
-  depends_on "python@3"
+  depends_on "python@3.11"
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "zstd"
@@ -53,7 +53,6 @@ class PostgresqlAT15 < Formula
       --with-python
       --with-tcl
       --with-zstd
-      PYTHON=python3
       XML2_CONFIG=:
     ]
 
