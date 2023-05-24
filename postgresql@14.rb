@@ -30,7 +30,7 @@ class PostgresqlAT14 < Formula
   depends_on "python@3.11"
   depends_on "readline"
   depends_on "tcl-tk"
-  depends_on "llvm" => :optional
+  #depends_on "llvm" => :optional
 
   def install
     args = %W[
