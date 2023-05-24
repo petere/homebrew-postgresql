@@ -8,7 +8,7 @@ class PostgresqlAT15 < Formula
   license "PostgreSQL"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_15_STABLE"
 
     depends_on "docbook-xsl" => :build
   end
@@ -17,6 +17,9 @@ class PostgresqlAT15 < Formula
 
   option "with-cassert", "Enable assertion checks (for debugging)"
   deprecated_option "enable-cassert" => "with-cassert"
+
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2027-11-11", because: :unsupported
 
   depends_on "pkg-config" => :build
 
