@@ -33,7 +33,6 @@ class PostgresqlAT94 < Formula
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "perl"
-  depends_on "python@3.8"
   depends_on "readline"
   depends_on "tcl-tk"
 
@@ -51,9 +50,7 @@ class PostgresqlAT94 < Formula
       --with-uuid=e2fs
       --with-pam
       --with-perl
-      --with-python
       --with-tcl
-      PYTHON=#{Formula["python@3.8"].opt_bin/"python3"}
       XML2_CONFIG=:
     ]
 

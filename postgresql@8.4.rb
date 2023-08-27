@@ -43,7 +43,6 @@ class PostgresqlAT84 < Formula
       --with-ossp-uuid
       --with-pam
       --with-perl
-      --with-python
       --with-tcl
       XML2_CONFIG=:
     ]

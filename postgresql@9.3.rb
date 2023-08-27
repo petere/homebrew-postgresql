@@ -34,7 +34,6 @@ class PostgresqlAT93 < Formula
   depends_on "openssl@1.1"
   depends_on "ossp-uuid"
   depends_on "perl"
-  depends_on "python@3.7"
   depends_on "readline"
   depends_on "tcl-tk"
 
@@ -56,9 +55,7 @@ class PostgresqlAT93 < Formula
       --with-ossp-uuid
       --with-pam
       --with-perl
-      --with-python
       --with-tcl
-      PYTHON=#{Formula["python@3.7"].opt_bin/"python3"}
       XML2_CONFIG=:
     ]
 
