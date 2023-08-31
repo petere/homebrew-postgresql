@@ -6,6 +6,7 @@ task:
   env:
     matrix:
       - PACKAGE: postgresql-common
+      - PACKAGE: postgresql@16
       - PACKAGE: postgresql@15
       - PACKAGE: postgresql@14
       - PACKAGE: postgresql@13
