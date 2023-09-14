@@ -1,10 +1,10 @@
 class PostgresqlAT16 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "16rc1"
+  version = "16.0"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "ce97b3f4199a702a19ced11f86d0b93bb1fa55e869129e1435210ed8d505fa84"
+  sha256 "df9e823eb22330444e1d48e52cc65135a652a6fdb3ce325e3f08549339f51b99"
   license "PostgreSQL"
 
   head do
@@ -17,6 +17,9 @@ class PostgresqlAT16 < Formula
 
   option "with-cassert", "Enable assertion checks (for debugging)"
   deprecated_option "enable-cassert" => "with-cassert"
+
+  # https://www.postgresql.org/support/versioning/
+  deprecate! date: "2028-11-09", because: :unsupported
 
   depends_on "pkg-config" => :build
 
