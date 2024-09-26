@@ -1,13 +1,17 @@
 class PostgresqlAT17 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "17rc1"
+  version = "17.0"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "cef689e2de8c3d605d8406c065573b8d70859fc6f2a8d720b0d98a6d62ef16e8"
+  sha256 "7e276131c0fdd6b62588dbad9b3bb24b8c3498d5009328dba59af16e819109de"
   license "PostgreSQL"
 
-  head "https://git.postgresql.org/git/postgresql.git", branch: "master"
+  head do
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_17_STABLE"
+
+    depends_on "docbook-xsl" => :build
+  end
 
   keg_only :versioned_formula
 
