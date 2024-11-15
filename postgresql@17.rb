@@ -1,10 +1,10 @@
 class PostgresqlAT17 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "17.0"
+  version = "17.1"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "7e276131c0fdd6b62588dbad9b3bb24b8c3498d5009328dba59af16e819109de"
+  sha256 "7849db74ef6a8555d0723f87e81539301422fa9c8e9f21cce61fdc14e9199dcd"
   license "PostgreSQL"
 
   head do
@@ -19,7 +19,7 @@ class PostgresqlAT17 < Formula
   deprecated_option "enable-cassert" => "with-cassert"
 
   # https://www.postgresql.org/support/versioning/
-  #deprecate! date: "2029-11-NN", because: :unsupported
+  deprecate! date: "2029-11-08", because: :unsupported
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
