@@ -32,7 +32,7 @@ class PostgresqlAT10 < Formula
   depends_on "gettext"
   depends_on "icu4c"
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "python@3"
   depends_on "readline"
   depends_on "tcl-tk"
