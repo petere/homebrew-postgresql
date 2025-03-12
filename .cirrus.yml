@@ -1,5 +1,6 @@
 task:
   name: macOS
+  trigger_type: manual
   macos_instance:
     matrix:
       - image: ghcr.io/cirruslabs/macos-runner:sonoma
