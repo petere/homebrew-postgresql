@@ -1,14 +1,14 @@
 class PostgresqlAT18 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "18beta1"
+  version = "18beta3"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "0b7c83df6195398aa67dbf5c002e7fa4082be393aae99aa69926d483f98eb885"
+  sha256 "21d86e55eea11300c3a2212647dc3d48bd844b83017cf6ce5684639ad8f95278"
   license "PostgreSQL"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_18_STABLE"
 
     depends_on "docbook-xsl" => :build
   end
