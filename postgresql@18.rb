@@ -36,6 +36,9 @@ class PostgresqlAT18 < Formula
   depends_on "zstd"
   depends_on "llvm" => :optional
 
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -45,6 +48,7 @@ class PostgresqlAT18 < Formula
       --with-gssapi
       --with-icu
       --with-ldap
+      --with-libcurl
       --with-libxml
       --with-libxslt
       --with-lz4
