@@ -1,10 +1,10 @@
 class PostgresqlAT18 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "18rc1"
+  version = "18.0"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "b1a4cdc0ed6e97d117f044da67815829d560002c821290a9dee86e5e499b2f4c"
+  sha256 "0d5b903b1e5fe361bca7aa9507519933773eb34266b1357c4e7780fdee6d6078"
   license "PostgreSQL"
 
   head do
@@ -19,7 +19,7 @@ class PostgresqlAT18 < Formula
   deprecated_option "enable-cassert" => "with-cassert"
 
   # https://www.postgresql.org/support/versioning/
-  #deprecate! date: "2030-11-NN", because: :unsupported
+  deprecate! date: "2030-11-14", because: :unsupported
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
