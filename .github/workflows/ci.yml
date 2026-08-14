@@ -1,0 +1,62 @@
+name: macOS
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.package }}
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package: postgresql-common
+          - package: postgresql@18
+          - package: postgresql@17
+          - package: postgresql@16
+          - package: postgresql@15
+          - package: postgresql@14
+          - package: postgresql@13
+          - package: postgresql@12
+          - package: postgresql@11
+          - package: postgresql@10
+#          - package: postgresql@9.6
+#          - package: postgresql@9.5
+#          - package: postgresql@9.4
+#            install_opt: '--HEAD'
+#          - package: postgresql@9.3
+#            install_opt: '--HEAD'
+#          - package: postgresql@9.2
+#            install_opt: '--HEAD'
+    env:
+      PACKAGE: ${{ matrix.package }}
+      install_opt: ${{ matrix.install_opt }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up tap
+        run: |
+          brew update
+          mkdir -p "$(brew --repo)/Library/Taps/gha"
+          ln -s "$PWD" "$(brew --repo)/Library/Taps/gha/homebrew-testtap"
+          brew tap --repair
+
+      - name: Build
+        run: |
+          brew install -v $install_opt gha/testtap/$PACKAGE
+
+      - name: Post-install
+        run: |
+          brew postinstall gha/testtap/$PACKAGE
+
+      - name: Audit
+        run: |
+          brew audit --except=file,specs gha/testtap/$PACKAGE
+
+      - name: Test
+        run: |
+          brew test gha/testtap/$PACKAGE
