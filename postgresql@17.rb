@@ -1,10 +1,10 @@
 class PostgresqlAT17 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "17.8"
+  version = "17.11"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "a88d195dd93730452d0cfa1a11896720d6d1ba084bc2be7d7fc557fa4e4158a0"
+  sha256 "dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979"
   license "PostgreSQL"
 
   head do
