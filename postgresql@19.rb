@@ -1,10 +1,10 @@
 class PostgresqlAT19 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "19beta3"
+  version = "19beta4"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "ea4ad8933121930a58f23c73dc99c26a4184faca26faefa77d15ce0fba7dfe2c"
+  sha256 "83157ee9c599d03b2f7a3d73ef3a56ec24e0e79cc2b3501a64d1364f56398c86"
   license "PostgreSQL"
 
   head do
