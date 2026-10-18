@@ -9,7 +9,7 @@ permissions:
 jobs:
   build:
     name: ${{ matrix.package }}
-    runs-on: macos-14
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
