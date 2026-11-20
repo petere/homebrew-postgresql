@@ -1,14 +1,14 @@
 class PostgresqlAT19 < Formula
   desc "Relational database management system"
   homepage "https://www.postgresql.org/"
-  version = "19rc1"
+  version = "19.0"
   url "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
   version version
-  sha256 "af105fc8e960fc836a09fc2cd7f582b49fd17675d9d36631abe3a565bfd7d701"
+  sha256 "a89fd70efbad6a08c7dbed8d4872e3af30170d9e5ca9dc7906523be95b4e692d"
   license "PostgreSQL"
 
   head do
-    url "https://git.postgresql.org/git/postgresql.git", branch: "master"
+    url "https://git.postgresql.org/git/postgresql.git", branch: "REL_19_STABLE"
 
     depends_on "docbook-xsl" => :build
   end
@@ -19,7 +19,7 @@ class PostgresqlAT19 < Formula
   deprecated_option "enable-cassert" => "with-cassert"
 
   # https://www.postgresql.org/support/versioning/
-  #deprecate! date: "2030-11-14", because: :unsupported
+  deprecate! date: "2031-11-19", because: :unsupported
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
